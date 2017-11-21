@@ -1,0 +1,11 @@
+apply plugin: 'org.springframework.boot'
+
+version '1.0.0'
+archivesBaseName='gataway'
+
+
+
+
+dependencies {
+    compile('org.springframework.cloud:spring-cloud-starter-zuul')
+}

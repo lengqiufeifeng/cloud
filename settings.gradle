@@ -1,0 +1,9 @@
+rootProject.name = 'cloud'
+include 'z-common'
+include 'eureka'
+include 'service-monitoring'
+include 'zuul-gateway'
+include 'service-user'
+include 'service-drools-dispatch'
+include 'service-solr'
+

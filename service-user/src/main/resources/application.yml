@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: service-user
+  profiles:
+    active: dev #环境files
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka/
+server:
+  port: 8081

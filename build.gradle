@@ -1,0 +1,120 @@
+group = 'logan.exemple'
+version = '1.0.0'
+buildscript {
+    ext {
+        springBootVersion = '2.+'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+//
+allprojects {
+    repositories {
+        mavenLocal()
+//        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenCentral()
+        maven { url "https://repo.maven.apache.org/maven2" }
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+
+    }
+
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+    // 用于发布 jar 包到相应服务器
+    apply plugin: 'maven'
+//    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'logan.exemple'
+    version = '1.0.0'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    ext {
+        springCloudVersion = 'Finchley.M2'
+    }
+    // 编码改为 UTF-8, 否则编译源码的时候会出错
+    // 当然，这个需要根据自己的 java 源码的编码进行调整
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+    configurations {
+
+        deployerJars
+
+        //
+        // 所有需要忽略的包定义在此
+        //
+//        all*.exclude group: 'commons-httpclient'
+//        all*.exclude group: 'commons-logging'
+//        all*.exclude group: 'commons-beanutils', module: 'commons-beanutils'
+    }
+
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter')
+        compile('org.springframework.cloud:spring-cloud-starter-eureka')
+
+        compile group: 'mysql', name: 'mysql-connector-java', version: '6.+'
+        compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.+'
+
+        compile group: 'com.github.pagehelper', name: 'pagehelper', version: '5.+'
+        compile group: 'com.github.jsqlparser', name: 'jsqlparser'
+
+        compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.+'
+
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+        testCompile('com.jayway.jsonpath:json-path')
+    }
+
+
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+}
+//编译版本
+def getGitVersion() {
+    return 'git rev-parse --short HEAD'.execute().text.trim()
+}
+//读取文件并替换字符串
+
+def fileReader(path, oldStr, newStr) {
+    def readerString = "";
+    new File(path).withReader('UTF-8') { reader ->
+        reader.eachLine {
+            if (it.find(oldStr)) {
+                it = it.replace(oldStr, newStr)
+            }
+            readerString <<= it
+            readerString << '\n'
+        }
+        return readerString
+    }
+}
+//读取文件
+
+def fileReader(path) {
+    def readerString = "";
+    return new File(path).text
+}
+//写文件
+
+def fileWrite(path, stringBuffer) {
+    new File(path).withWriter('UTF-8') {
+        within ->
+            within.append(stringBuffer)
+    }
+}

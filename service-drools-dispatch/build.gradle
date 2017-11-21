@@ -1,0 +1,41 @@
+group 'logan.exemple'
+version '1.0.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        name 'jboss'
+        url 'https://repository.jboss.org/nexus/content/groups/public/'
+    }
+}
+ext {
+    droolsVersion = '7.4.1.Final'
+}
+dependencies {
+    //配置 M2_HOME 环境变量
+    compile project(":z-common")
+    compile "org.kie:kie-api:$droolsVersion"
+    compile "org.kie:kie-ci:$droolsVersion"
+    compile "org.kie:kie-internal:$droolsVersion"
+//    compile "org.mvel:mvel2:$droolsVersion"
+    compile ("org.kie:kie-spring:$droolsVersion"){
+//        transitive = false
+        exclude group: 'org.springframework:spring-tx'
+        exclude group: 'org.springframework:spring-beans'
+        exclude module: 'spring-core'
+        exclude module: 'spring-context'
+    }
+    compile "org.drools:drools-core:$droolsVersion"
+    compile "org.drools:drools-compiler:$droolsVersion"
+    compile "org.drools:drools-decisiontables:$droolsVersion"
+    compile "org.drools:drools-templates:$droolsVersion"
+    //使用新
+    compile "com.thoughtworks.xstream:xstream:1.4.10"
+
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

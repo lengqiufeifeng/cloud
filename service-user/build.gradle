@@ -1,0 +1,141 @@
+
+apply plugin: 'org.springframework.boot'
+//打包war使用
+apply plugin: 'war'
+
+archivesBaseName = 'user-service'
+version = '1.0.0'
+
+dependencies {
+    compile project(":z-common")
+    compile group: 'com.alibaba', name: 'druid', version: '1.+'
+    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '1.+'
+    //打包war使用
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+}
+//用profile参数确定引用哪个配置文件, 执行 build -Dprofile=prd
+def env = System.getProperty("profile") ?: "dev"
+
+sourceSets {
+    main {
+        resources {
+            exclude '**/profile/**'  // 不想包含的资源文件路径
+            srcDirs = ["src/main/resources", "src/main/resources/profile/$env"]
+        }
+    }
+}
+// 设置 snapshot war 版本号
+// 格式为： project-web-1.1.0.123-SNAPSHOT.war
+
+task aSetSnapshotWarVersion {
+    doFirst {
+        println '== Snapshot begin....'
+        println '================================================='
+        def path=rootDir.getAbsolutePath()+'/service-user/build_number.data';
+        def buildNumber =fileReader(path)
+        version += '.' + buildNumber
+        def newBuildNumber=1+Integer.parseInt(buildNumber)
+        fileWrite(path,String.valueOf(newBuildNumber))
+        version += '-SNAPSHOT'
+        println ">> new version: ${version}"
+        println ">> war: ${archivesBaseName}-${version}.war"
+        println '================================================='
+//        war {
+//            excludes = ['**/rebel.xml', '**/.keep']
+//            manifest = defaultManifest([
+//                    project      : project,
+//                    version      : version,
+//                    projectVendor: 'logan'
+//            ])
+//        }
+        sourceSets {
+            main {
+                resources {
+                    exclude '**/profile/**'  // 不想包含的资源文件路径
+                    srcDirs = ["src/main/resources", "src/main/resources/profile/sit"]
+                }
+            }
+        }
+    }
+}
+
+// 编译 snapshot 版的 war 包
+//aSetSnapshotWarVersion以a开通先于build执行，dependsOn task
+task snapshotSit(dependsOn: ['aSetSnapshotWarVersion', 'build']) {
+    def path=rootDir.getAbsolutePath()+'/service-user/build';
+    File file1 = new File(path);
+    file1.deleteDir()
+    doLast {
+        println '== Snapshot WAR Generate Over'
+    }
+}
+
+//
+// 设置 release 生产包的版本号
+// 格式为: project-1.1.0.war
+//aSetSnapshotWarVersion以a开通先于build执行，dependsOn task
+task aSetReleaseWarVersion {
+    doFirst {
+        println '== Release Begin...'
+        println '================================================='
+        def path=rootDir.getAbsolutePath()+'/service-user/build_number.data';
+        def buildNumber =fileReader(path)
+        version += '.' + buildNumber
+        def newBuildNumber=1+Integer.parseInt(buildNumber)
+        fileWrite(path,String.valueOf(newBuildNumber))
+        println ">> new version: ${version}"
+        println ">> war: ${archivesBaseName}-${version}.war"
+        println '================================================='
+//        war {
+//            excludes = ['**/rebel.xml', '**/.keep']
+//            manifest = defaultManifest([
+//                    project      : project,
+//                    version      : version,
+//                    projectVendor: 'logan'
+//            ])
+//        }
+        sourceSets {
+            main {
+                resources {
+                    exclude '**/profile/**'  // 不想包含的资源文件路径
+                    srcDirs = ["src/main/resources", "src/main/resources/profile/prd"]
+                }
+            }
+        }
+    }
+}
+//aSetSnapshotWarVersion以a开通先于build执行，dependsOn task
+task releasePrd(dependsOn: ['aSetReleaseWarVersion','build']) {
+    def path=rootDir.getAbsolutePath()+'/service-user/build';
+    File file1 = new File(path);
+    file1.deleteDir();
+    doLast {
+        println ">> war: ${archivesBaseName}-${version}.war"
+        println '== Release WAR Generate Over'
+        println '================================================='
+    }
+}
+
+//mybatis generator plugin ------ start
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.com.arenagod.gradle:mybatis-generator-plugin:1.4"
+
+    }
+}
+
+apply plugin: "com.arenagod.gradle.MybatisGenerator"
+
+configurations {
+    mybatisGenerator
+}
+
+mybatisGenerator {
+    verbose = true
+    configFile = 'src/test/resources/mysqlGeneratorConfig.xml'
+}

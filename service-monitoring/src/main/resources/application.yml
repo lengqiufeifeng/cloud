@@ -1,0 +1,20 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka/
+server:
+  port: 9090
+  session:
+     timeout: 20
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  profiles:
+    active: dev #环境
+  application:
+    name: service-monitoring
+#  mvc:
+#    throwExceptionIfNoHandlerFound: true #找不到页面抛出异常
+#  resources:
+#    add-mappings: false #不要为我们工程中的资源文件建立映射
+

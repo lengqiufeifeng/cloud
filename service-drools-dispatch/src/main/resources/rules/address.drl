@@ -1,0 +1,14 @@
+package logan.exemple.dispatch
+
+import logan.exemple.dispatch.model.Address;
+import logan.exemple.dispatch.model.fact.AddressCheckResult;
+
+rule "Postcode should be filled with exactly 5 numbers"
+
+    when
+        address : Address(postcode != null, postcode matches "([0-9]{5})")
+        checkResult : AddressCheckResult();
+    then
+        checkResult.setPostCodeResult(true);
+		System.out.println("logs in rule ：check success!");
+end

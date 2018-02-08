@@ -36,13 +36,13 @@ public abstract class AbstractContextLoaderListener extends ContextLoaderListene
      * super.contextInitialized(event);
      * @return
      */
-    public abstract boolean isEnabled();
+    public abstract boolean isContextInitialized();
 
     @Override
     public void contextInitialized(ServletContextEvent event) {
         printStart();
         try {
-            boolean f = isEnabled();
+            boolean f = isContextInitialized();
             if (f)
                 super.contextInitialized(event);
             printStarted();
@@ -67,7 +67,7 @@ public abstract class AbstractContextLoaderListener extends ContextLoaderListene
     @Override
     public void contextDestroyed(ServletContextEvent event) {
         printStop();
-        if (isEnabled())
+        if (isContextInitialized())
             super.contextDestroyed(event);
         printStopped();
     }
@@ -98,7 +98,6 @@ public abstract class AbstractContextLoaderListener extends ContextLoaderListene
                 return sb.toString();
             }
 
-            ;
         };
         // 收集系统环境数据
         getCPUInfo(map);

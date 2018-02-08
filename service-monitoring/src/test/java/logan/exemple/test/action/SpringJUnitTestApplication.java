@@ -81,7 +81,7 @@ public class SpringJUnitTestApplication {
         sysLog.requestData = "来自单元测试日志";
         sysLog.responseData = "来自日志记录反馈";
         sysLog.createTime = new Date();
-        sysLog.updataTime = new Date();
+        sysLog.updateTime = new Date();
 
 //        try {
 //            MockHttpServletRequestBuilder mhsrb = MockMvcRequestBuilders.post("/log/addlog");

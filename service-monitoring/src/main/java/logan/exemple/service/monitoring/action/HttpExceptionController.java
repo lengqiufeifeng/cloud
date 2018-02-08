@@ -26,7 +26,7 @@ class HttpExceptionController implements ErrorViewResolver {
 
 
 
-    @RequestMapping(value = "/error")
+    @RequestMapping(value = "/self/error")
     @ResponseBody
     public Object error(HttpServletResponse resp, HttpServletRequest req) {
         Result r = new Result();
@@ -58,6 +58,6 @@ class HttpExceptionController implements ErrorViewResolver {
     @Override
     public ModelAndView resolveErrorView(HttpServletRequest request, HttpStatus status, Map<String, Object> model) {
 
-        return new ModelAndView("/error");
+        return new ModelAndView("/self/error");
     }
 }

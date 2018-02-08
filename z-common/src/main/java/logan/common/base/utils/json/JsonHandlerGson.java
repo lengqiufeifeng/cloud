@@ -14,7 +14,9 @@ public class JsonHandlerGson {
     public static String ToJsonStr(Object obj) {
         return gosn.toJson(obj);
     }
-
+    public static String ToJsonStrFormat(Object obj) {
+        return JsonFormatTool.formatJson(ToJsonStr(obj));
+    }
     /**
      * json字符串转类
      * @param json

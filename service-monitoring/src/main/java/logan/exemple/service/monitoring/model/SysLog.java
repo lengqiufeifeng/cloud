@@ -44,8 +44,8 @@ public class SysLog {
     @Column(name="log_type")
     public Integer  logType;
 
-    @Column(name="updata_time")
-    public Date  updataTime;
+    @Column(name="update_time")
+    public Date  updateTime;
 
     @Column(name="create_time")
     public Date  createTime;

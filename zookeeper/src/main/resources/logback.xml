@@ -2,7 +2,7 @@
 <configuration scan="true" scanPeriod="10 seconds">
 	<!-- <include resource="org/springframework/boot/logging/logback/base.xml" 
 		/> -->
-	<property name="LOG_PATH" value="${catalina.home:-logs}/logs/auction_web" />
+	<property name="LOG_PATH" value="${catalina.home:-logs}/logs/zookeeper" />
 	<property name="MAX_HISTORY" value="60" />
 	<property name="MAX_FILESIZE" value="60MB" />
 	<!-- <if condition="property('catalina.home')==null"> <then> <property name="LOG_PATH"
@@ -105,7 +105,7 @@
 
 	<!-- Spring -->
 	<logger name="org.springframework" additivity="false">
-		<level value="Debug" />
+		<level value="info" />
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="WARN_FILE" />
 	</logger>
@@ -116,7 +116,7 @@
 		<appender-ref ref="WARN_FILE" />
 	</logger>
 	<logger name="org.apache" additivity="false">
-		<level value="Debug" />
+		<level value="info" />
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="WARN_FILE" />
 	</logger>
@@ -127,7 +127,7 @@
 	</logger>
 	<!-- ROOT -->
 	<root>
-		<level value="debug" />
+		<level value="info" />
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="DEBUG_FILE" />
 		<appender-ref ref="INFO_FILE" />

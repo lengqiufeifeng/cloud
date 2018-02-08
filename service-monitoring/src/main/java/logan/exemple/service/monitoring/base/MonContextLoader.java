@@ -15,7 +15,7 @@ public class MonContextLoader extends AbstractContextLoaderListener {
     }
 
     @Override
-    public boolean isEnabled() {
+    public boolean isContextInitialized() {
         return false;
     }
 }

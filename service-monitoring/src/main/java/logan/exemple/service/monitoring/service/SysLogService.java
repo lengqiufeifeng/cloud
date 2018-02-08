@@ -29,7 +29,8 @@ public class SysLogService {
 
     @Transactional
     public SysLog saveSysLog(SysLog sysLog) {
-        return sysLogDao.save(sysLog);
+        SysLog sysLogR=sysLogDao.save(sysLog);
+        return sysLogR;
     }
 
     public SysLog findBySyslogId(Integer logId) {
@@ -104,7 +105,7 @@ public class SysLogService {
         } else {
             //创建匹配器，即如何使用查询条件
             ExampleMatcher matcher = ExampleMatcher.matching();
-            matcher.withIgnorePaths("createTime", "updataTime");
+            matcher.withIgnorePaths("createTime", "updateTime");
             Example<SysLog> example = Example.of(sysLog, matcher);
             lt = sysLogDao.findAll(example, pageable);
         }

@@ -7,7 +7,7 @@ import logan.common.base.boot.AbstractContextLoaderListener;
  * qq：425018553
  * 自定义监听
  */
-public class MonContextLoader extends AbstractContextLoaderListener {
+public class UserContextLoader extends AbstractContextLoaderListener {
 
     @Override
     public String getCallName() {
@@ -15,7 +15,7 @@ public class MonContextLoader extends AbstractContextLoaderListener {
     }
 
     @Override
-    public boolean isEnabled() {
+    public boolean isContextInitialized() {
         return false;
     }
 }

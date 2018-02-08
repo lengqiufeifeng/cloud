@@ -41,7 +41,7 @@ public class ServiceUserConfig {
     @Bean
     public ServletListenerRegistrationBean servletListenerRegistrationBean() {
         ServletListenerRegistrationBean servletListenerRegistrationBean = new ServletListenerRegistrationBean();
-        servletListenerRegistrationBean.setListener(new MonContextLoader());
+        servletListenerRegistrationBean.setListener(new UserContextLoader());
         return servletListenerRegistrationBean;
     }
 

@@ -44,8 +44,8 @@ public class SysNotification {
     @Column(name="nct_status")
     private Integer  nctStatus;
 
-    @Column(name="updata_time")
-    private Date updataTime;
+    @Column(name="update_time")
+    private Date updateTime;
 
     @Column(name="create_time")
     private Date  createTime;

@@ -47,7 +47,7 @@ public class ReloadDroolsRules {
                 "        checkResult : AddressCheckResult();\n" +
                 "    then\n" +
                 "        checkResult.setPostCodeResult(true);\n" +
-                "\t\tSystem.out.println(\"logs in rule ：check success!\");\n" +
+                "System.out.println(\"logs in rule ：check success!\");\n" +
                 "end";
     }
 

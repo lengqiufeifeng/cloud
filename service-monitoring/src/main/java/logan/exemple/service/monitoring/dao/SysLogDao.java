@@ -13,6 +13,11 @@ import org.springframework.data.jpa.repository.Query;
 public interface SysLogDao extends JpaRepository<SysLog, Long> ,JpaSpecificationExecutor<SysLog> {
     SysLog findBylogId(Integer logId);
 
+    /**
+     * 默认是只读事务，添加 @Modifying
+     * @param id
+     * @return
+     */
     @Modifying
     @Query("update SysLog as s_log set s_log.logType = 0 where s_log.logId = ?1")
     int modifyByLogId(int id);

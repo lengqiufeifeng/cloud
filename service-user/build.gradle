@@ -1,7 +1,7 @@
-
+group 'logan.exemple'
 apply plugin: 'org.springframework.boot'
 //打包war使用
-apply plugin: 'war'
+//apply plugin: 'war'
 
 archivesBaseName = 'user-service'
 version = '1.0.0'
@@ -11,7 +11,7 @@ dependencies {
     compile group: 'com.alibaba', name: 'druid', version: '1.+'
     compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '1.+'
     //打包war使用
-    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+//    compile 'org.springframework.boot:spring-boot-starter-tomcat'
 }
 //用profile参数确定引用哪个配置文件, 执行 build -Dprofile=prd
 def env = System.getProperty("profile") ?: "dev"
@@ -31,7 +31,7 @@ task aSetSnapshotWarVersion {
     doFirst {
         println '== Snapshot begin....'
         println '================================================='
-        def path=rootDir.getAbsolutePath()+'/service-user/build_number.data';
+        def path=rootDir.getAbsolutePath()+'/service-user/build_number.data'
         def buildNumber =fileReader(path)
         version += '.' + buildNumber
         def newBuildNumber=1+Integer.parseInt(buildNumber)
@@ -62,8 +62,8 @@ task aSetSnapshotWarVersion {
 // 编译 snapshot 版的 war 包
 //aSetSnapshotWarVersion以a开通先于build执行，dependsOn task
 task snapshotSit(dependsOn: ['aSetSnapshotWarVersion', 'build']) {
-    def path=rootDir.getAbsolutePath()+'/service-user/build';
-    File file1 = new File(path);
+    def path=rootDir.getAbsolutePath()+'/service-user/build'
+    File file1 = new File(path)
     file1.deleteDir()
     doLast {
         println '== Snapshot WAR Generate Over'
@@ -78,7 +78,7 @@ task aSetReleaseWarVersion {
     doFirst {
         println '== Release Begin...'
         println '================================================='
-        def path=rootDir.getAbsolutePath()+'/service-user/build_number.data';
+        def path=rootDir.getAbsolutePath()+'/service-user/build_number.data'
         def buildNumber =fileReader(path)
         version += '.' + buildNumber
         def newBuildNumber=1+Integer.parseInt(buildNumber)
@@ -106,9 +106,9 @@ task aSetReleaseWarVersion {
 }
 //aSetSnapshotWarVersion以a开通先于build执行，dependsOn task
 task releasePrd(dependsOn: ['aSetReleaseWarVersion','build']) {
-    def path=rootDir.getAbsolutePath()+'/service-user/build';
-    File file1 = new File(path);
-    file1.deleteDir();
+    def path=rootDir.getAbsolutePath()+'/service-user/build'
+    File file1 = new File(path)
+    file1.deleteDir()
     doLast {
         println ">> war: ${archivesBaseName}-${version}.war"
         println '== Release WAR Generate Over'

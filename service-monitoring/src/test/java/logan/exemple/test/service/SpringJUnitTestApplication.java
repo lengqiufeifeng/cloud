@@ -21,7 +21,7 @@ import javax.annotation.Resource;
 @SpringBootTest(classes = ServiceMtApplication.class)
 @WebAppConfiguration
 //事物回滚
-@Transactional
+//@Transactional
 public class SpringJUnitTestApplication {
     @Resource
     SysLogService sysLogService;
@@ -30,7 +30,7 @@ public class SpringJUnitTestApplication {
 //    @Rollback(true)//这里加无效，sysLogService.saveSysLog 加入注解事务
     public void saveSysLog(){
         SysLog saveSysLog=new SysLog();
-        saveSysLog.methodName="";
+        saveSysLog.methodName="12";
         SysLog result  = sysLogService.saveSysLog(saveSysLog);
         System.out.println("insert:"+result.logId);
         SysLog result1  = sysLogService.findBySyslogId(result.logId);

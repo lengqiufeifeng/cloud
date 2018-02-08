@@ -6,4 +6,6 @@ include 'zuul-gateway'
 include 'service-user'
 include 'service-drools-dispatch'
 include 'service-solr'
+include 'service-spring-batch'
+include 'zookeeper'
 

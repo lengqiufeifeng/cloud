@@ -1,0 +1,33 @@
+group 'logan.exemple'
+version '1.0.0'
+
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+configurations {
+
+    deployerJars
+
+    //
+    // 所有需要忽略的包定义在此
+    //
+        all*.exclude module: 'spring-boot-starter-logging'
+        all*.exclude module: 'slf4j-log4j12'
+}
+dependencies {
+    compile project(":z-common")
+    compile("org.springframework.boot:spring-boot-starter-batch")
+    compile("org.springframework.batch:spring-batch-admin-resources:2.+") {
+//        exclude module: 'slf4j-log4j12'
+    }
+    compile("org.springframework.batch:spring-batch-admin-manager:2.+"){
+//        exclude module: 'slf4j-log4j12'
+    }
+    compile("org.springframework.boot:spring-boot-starter-log4j2")
+    compile("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml")
+//    compile("org.hsqldb:hsqldb")
+}

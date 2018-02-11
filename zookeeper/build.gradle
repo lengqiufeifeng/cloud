@@ -19,15 +19,15 @@ configurations {
     all*.exclude module: 'spring-cloud-starter-eureka'
 }
 dependencies {
-//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    compile('org.springframework.cloud:spring-cloud-starter')
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     //##springboot 提供监听
-//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
     //使用zookeeper 作为配置中心
 //    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-zookeeper-config'
 
     //使用zookeeper 为服务注册中心
-//    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-zookeeper-discovery'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-zookeeper-discovery'
 //    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-zookeeper-all'
-    compile('org.springframework.cloud:spring-cloud-starter-eureka-server')
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

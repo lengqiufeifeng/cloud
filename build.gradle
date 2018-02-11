@@ -2,10 +2,13 @@ group = 'logan.exemple'
 version = '1.0.0'
 buildscript {
     ext {
-        springBootVersion = '2.+'
+        springBootVersion = '2.0.0.M3'
     }
     repositories {
         mavenCentral()
+        maven {
+            url 'https://repo.spring.io/libs-milestone'
+        }
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
     }
@@ -19,6 +22,9 @@ allprojects {
         mavenLocal()
 //        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         mavenCentral()
+        maven {
+            url 'https://repo.spring.io/libs-milestone'
+        }
         maven { url "https://repo.maven.apache.org/maven2" }
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
@@ -92,7 +98,7 @@ def getGitVersion() {
 //读取文件并替换字符串
 
 def fileReader(path, oldStr, newStr) {
-    def readerString = "";
+    def readerString = ""
     new File(path).withReader('UTF-8') { reader ->
         reader.eachLine {
             if (it.find(oldStr)) {
@@ -107,7 +113,7 @@ def fileReader(path, oldStr, newStr) {
 //读取文件
 
 def fileReader(path) {
-    def readerString = "";
+    def readerString = ""
     return new File(path).text
 }
 //写文件

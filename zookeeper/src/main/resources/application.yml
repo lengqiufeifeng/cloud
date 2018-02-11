@@ -1,13 +1,5 @@
 server:
-  port: 8011
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    registerWithEureka: false  #//是否注册
-    fetchRegistry: false #是否检索服务
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  port: 9010
 spring:
   application:
     name: service-zookeeper

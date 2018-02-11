@@ -9,5 +9,5 @@ include 'service-solr'
 include 'service-spring-batch'
 include 'zookeeper'
 include 'zookeeper-client'
-include 'zookeeper-client'
+
 

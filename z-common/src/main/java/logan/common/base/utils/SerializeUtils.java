@@ -5,6 +5,10 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 
+/**
+ * @see {@link org.apache.commons.lang3.SerializationUtils}
+ */
+@Deprecated
 public class SerializeUtils {
     private static Logger logger = LoggerFactory.getLogger(SerializeUtils.class);
 

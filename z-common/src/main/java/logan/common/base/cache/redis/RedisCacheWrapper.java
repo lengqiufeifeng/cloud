@@ -2,9 +2,12 @@ package logan.common.base.cache.redis;
 
 
 import logan.common.base.utils.SerializeUtils;
+import org.apache.commons.lang3.SerializationUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
+
+import java.io.Serializable;
 
 /**
  * 封装redis 用于区分不同模块缓存
@@ -40,15 +43,15 @@ public class RedisCacheWrapper {
 		return cache;
 	}
 
-	public void setObject(String key, Object value) {
-		setObject(key, value, 0);
+	public void setObject(String key, final Serializable obj) {
+		setObject(key, obj, 0);
 	}
 
-	public void setObject(String key, Object value, int expire) {
+	public void setObject(String key, final Serializable obj, int expire) {
 		key = cacheName + key;
 		Jedis cache = getJedis();
 		try {
-			cache.set(key.getBytes(), SerializeUtils.serialize(value));
+			cache.set(key.getBytes(), SerializationUtils.serialize(obj));
 			if (expire != 0) {
 				cache.expire(key, expire);
 			}

@@ -8,8 +8,8 @@ spring-cloud 自我学习例子
 ## zuul-gateway 网关
 
 ## service-drools-dispatch drools 规则引擎简单实例
-## service-monitoring jpa单实例
-## service-user mybatis 双数据源使用单实例
+## service-monitoring jpa 实例
+## service-user mybatis 双数据源使用实例
 
 ## service-solr 未实现
 ## service-spring-batch 批处理实例

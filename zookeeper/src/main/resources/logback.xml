@@ -105,7 +105,7 @@
 
 	<!-- Spring -->
 	<logger name="org.springframework" additivity="false">
-		<level value="info" />
+		<level value="WARN" />
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="WARN_FILE" />
 	</logger>
@@ -116,7 +116,7 @@
 		<appender-ref ref="WARN_FILE" />
 	</logger>
 	<logger name="org.apache" additivity="false">
-		<level value="info" />
+		<level value="WARN" />
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="WARN_FILE" />
 	</logger>

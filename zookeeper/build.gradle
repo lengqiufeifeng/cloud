@@ -19,6 +19,7 @@ configurations {
     all*.exclude module: 'spring-cloud-starter-eureka'
 }
 dependencies {
+    compile('org.springframework.boot:spring-boot-starter-amqp')
     compile('org.springframework.cloud:spring-cloud-starter')
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     //##springboot 提供监听

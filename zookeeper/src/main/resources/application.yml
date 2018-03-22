@@ -1,5 +1,7 @@
 server:
   port: 9010
 spring:
+  profiles:
+    active: dev #环境
   application:
     name: service-zookeeper

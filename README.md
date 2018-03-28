@@ -14,8 +14,10 @@ spring-cloud 自我学习例子
 ## service-solr 未实现
 ## service-spring-batch 批处理实例
 
-## zookeeper 使用zookeeper作为服务注册，服务端 rabbitmq 队列 使用（消费端）
-## zookeeper-client 使用zookeeper作为服务注册，调用端rabbitmq 队列 使用（生产端）
+## zookeeper 使用zookeeper作为服务注册，服务端  
+#rabbitmq 队列 使用（消费端）
+## zookeeper-client 使用zookeeper作为服务注册，调用端   
+#rabbitmq 队列 使用（生产端）
 
 
 

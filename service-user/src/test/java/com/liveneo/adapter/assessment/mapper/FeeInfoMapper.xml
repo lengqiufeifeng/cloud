@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liveneo.adapter.assessment.dao.FeeInfoMapper">
+  <resultMap id="BaseResultMap" type="com.liveneo.adapter.assessment.model.FeeInfo">
+    <id column="fee_info_id" jdbcType="VARCHAR" property="feeInfoId" />
+    <result column="org_code" jdbcType="VARCHAR" property="orgCode" />
+    <result column="case_no" jdbcType="VARCHAR" property="caseNo" />
+    <result column="loss_id" jdbcType="VARCHAR" property="lossId" />
+    <result column="part_fee_code" jdbcType="VARCHAR" property="partFeeCode" />
+    <result column="part_fee_name" jdbcType="VARCHAR" property="partFeeName" />
+    <result column="part_fee_ph" jdbcType="VARCHAR" property="partFeePh" />
+    <result column="vin" jdbcType="VARCHAR" property="vin" />
+    <result column="brand_type" jdbcType="VARCHAR" property="brandType" />
+    <result column="engine_no" jdbcType="VARCHAR" property="engineNo" />
+    <result column="driver_name" jdbcType="VARCHAR" property="driverName" />
+    <result column="parts_total_money" jdbcType="VARCHAR" property="partsTotalMoney" />
+    <result column="labor_hours_total_money" jdbcType="VARCHAR" property="laborHoursTotalMoney" />
+    <result column="ingredients_total_money" jdbcType="VARCHAR" property="ingredientsTotalMoney" />
+    <result column="benefit_peoples_total_money" jdbcType="VARCHAR" property="benefitPeoplesTotalMoney" />
+    <result column="fee_amount" jdbcType="VARCHAR" property="feeAmount" />
+    <result column="rescues_total_money" jdbcType="VARCHAR" property="rescuesTotalMoney" />
+    <result column="salvages_total_money" jdbcType="VARCHAR" property="salvagesTotalMoney" />
+    <result column="total_fee_amount" jdbcType="VARCHAR" property="totalFeeAmount" />
+    <result column="repair_shop_name" jdbcType="VARCHAR" property="repairShopName" />
+    <result column="repair_shop_code" jdbcType="VARCHAR" property="repairShopCode" />
+    <result column="price_type" jdbcType="VARCHAR" property="priceType" />
+    <result column="accident_cause" jdbcType="VARCHAR" property="accidentCause" />
+    <result column="total_loss" jdbcType="VARCHAR" property="totalLoss" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    fee_info_id, org_code, case_no, loss_id, part_fee_code, part_fee_name, part_fee_ph, 
+    vin, brand_type, engine_no, driver_name, parts_total_money, labor_hours_total_money, 
+    ingredients_total_money, benefit_peoples_total_money, fee_amount, rescues_total_money, 
+    salvages_total_money, total_fee_amount, repair_shop_name, repair_shop_code, price_type, 
+    accident_cause, total_loss, remarks, status, CREATE_BY, CREATE_TIME, UPDATE_BY, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fee_info
+    where fee_info_id = #{feeInfoId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from fee_info
+    where fee_info_id = #{feeInfoId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.liveneo.adapter.assessment.model.FeeInfo">
+    insert into fee_info (fee_info_id, org_code, case_no, 
+      loss_id, part_fee_code, part_fee_name, 
+      part_fee_ph, vin, brand_type, 
+      engine_no, driver_name, parts_total_money, 
+      labor_hours_total_money, ingredients_total_money, 
+      benefit_peoples_total_money, fee_amount, rescues_total_money, 
+      salvages_total_money, total_fee_amount, repair_shop_name, 
+      repair_shop_code, price_type, accident_cause, 
+      total_loss, remarks, status, 
+      CREATE_BY, CREATE_TIME, UPDATE_BY, 
+      UPDATE_TIME)
+    values (#{feeInfoId,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR}, #{caseNo,jdbcType=VARCHAR}, 
+      #{lossId,jdbcType=VARCHAR}, #{partFeeCode,jdbcType=VARCHAR}, #{partFeeName,jdbcType=VARCHAR}, 
+      #{partFeePh,jdbcType=VARCHAR}, #{vin,jdbcType=VARCHAR}, #{brandType,jdbcType=VARCHAR}, 
+      #{engineNo,jdbcType=VARCHAR}, #{driverName,jdbcType=VARCHAR}, #{partsTotalMoney,jdbcType=VARCHAR}, 
+      #{laborHoursTotalMoney,jdbcType=VARCHAR}, #{ingredientsTotalMoney,jdbcType=VARCHAR}, 
+      #{benefitPeoplesTotalMoney,jdbcType=VARCHAR}, #{feeAmount,jdbcType=VARCHAR}, #{rescuesTotalMoney,jdbcType=VARCHAR}, 
+      #{salvagesTotalMoney,jdbcType=VARCHAR}, #{totalFeeAmount,jdbcType=VARCHAR}, #{repairShopName,jdbcType=VARCHAR}, 
+      #{repairShopCode,jdbcType=VARCHAR}, #{priceType,jdbcType=VARCHAR}, #{accidentCause,jdbcType=VARCHAR}, 
+      #{totalLoss,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.liveneo.adapter.assessment.model.FeeInfo">
+    insert into fee_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="feeInfoId != null">
+        fee_info_id,
+      </if>
+      <if test="orgCode != null">
+        org_code,
+      </if>
+      <if test="caseNo != null">
+        case_no,
+      </if>
+      <if test="lossId != null">
+        loss_id,
+      </if>
+      <if test="partFeeCode != null">
+        part_fee_code,
+      </if>
+      <if test="partFeeName != null">
+        part_fee_name,
+      </if>
+      <if test="partFeePh != null">
+        part_fee_ph,
+      </if>
+      <if test="vin != null">
+        vin,
+      </if>
+      <if test="brandType != null">
+        brand_type,
+      </if>
+      <if test="engineNo != null">
+        engine_no,
+      </if>
+      <if test="driverName != null">
+        driver_name,
+      </if>
+      <if test="partsTotalMoney != null">
+        parts_total_money,
+      </if>
+      <if test="laborHoursTotalMoney != null">
+        labor_hours_total_money,
+      </if>
+      <if test="ingredientsTotalMoney != null">
+        ingredients_total_money,
+      </if>
+      <if test="benefitPeoplesTotalMoney != null">
+        benefit_peoples_total_money,
+      </if>
+      <if test="feeAmount != null">
+        fee_amount,
+      </if>
+      <if test="rescuesTotalMoney != null">
+        rescues_total_money,
+      </if>
+      <if test="salvagesTotalMoney != null">
+        salvages_total_money,
+      </if>
+      <if test="totalFeeAmount != null">
+        total_fee_amount,
+      </if>
+      <if test="repairShopName != null">
+        repair_shop_name,
+      </if>
+      <if test="repairShopCode != null">
+        repair_shop_code,
+      </if>
+      <if test="priceType != null">
+        price_type,
+      </if>
+      <if test="accidentCause != null">
+        accident_cause,
+      </if>
+      <if test="totalLoss != null">
+        total_loss,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="feeInfoId != null">
+        #{feeInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null">
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="caseNo != null">
+        #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lossId != null">
+        #{lossId,jdbcType=VARCHAR},
+      </if>
+      <if test="partFeeCode != null">
+        #{partFeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="partFeeName != null">
+        #{partFeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="partFeePh != null">
+        #{partFeePh,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null">
+        #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="brandType != null">
+        #{brandType,jdbcType=VARCHAR},
+      </if>
+      <if test="engineNo != null">
+        #{engineNo,jdbcType=VARCHAR},
+      </if>
+      <if test="driverName != null">
+        #{driverName,jdbcType=VARCHAR},
+      </if>
+      <if test="partsTotalMoney != null">
+        #{partsTotalMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="laborHoursTotalMoney != null">
+        #{laborHoursTotalMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="ingredientsTotalMoney != null">
+        #{ingredientsTotalMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitPeoplesTotalMoney != null">
+        #{benefitPeoplesTotalMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="feeAmount != null">
+        #{feeAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="rescuesTotalMoney != null">
+        #{rescuesTotalMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="salvagesTotalMoney != null">
+        #{salvagesTotalMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="totalFeeAmount != null">
+        #{totalFeeAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="repairShopName != null">
+        #{repairShopName,jdbcType=VARCHAR},
+      </if>
+      <if test="repairShopCode != null">
+        #{repairShopCode,jdbcType=VARCHAR},
+      </if>
+      <if test="priceType != null">
+        #{priceType,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentCause != null">
+        #{accidentCause,jdbcType=VARCHAR},
+      </if>
+      <if test="totalLoss != null">
+        #{totalLoss,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.liveneo.adapter.assessment.model.FeeInfo">
+    update fee_info
+    <set>
+      <if test="orgCode != null">
+        org_code = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="caseNo != null">
+        case_no = #{caseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lossId != null">
+        loss_id = #{lossId,jdbcType=VARCHAR},
+      </if>
+      <if test="partFeeCode != null">
+        part_fee_code = #{partFeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="partFeeName != null">
+        part_fee_name = #{partFeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="partFeePh != null">
+        part_fee_ph = #{partFeePh,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null">
+        vin = #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="brandType != null">
+        brand_type = #{brandType,jdbcType=VARCHAR},
+      </if>
+      <if test="engineNo != null">
+        engine_no = #{engineNo,jdbcType=VARCHAR},
+      </if>
+      <if test="driverName != null">
+        driver_name = #{driverName,jdbcType=VARCHAR},
+      </if>
+      <if test="partsTotalMoney != null">
+        parts_total_money = #{partsTotalMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="laborHoursTotalMoney != null">
+        labor_hours_total_money = #{laborHoursTotalMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="ingredientsTotalMoney != null">
+        ingredients_total_money = #{ingredientsTotalMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="benefitPeoplesTotalMoney != null">
+        benefit_peoples_total_money = #{benefitPeoplesTotalMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="feeAmount != null">
+        fee_amount = #{feeAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="rescuesTotalMoney != null">
+        rescues_total_money = #{rescuesTotalMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="salvagesTotalMoney != null">
+        salvages_total_money = #{salvagesTotalMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="totalFeeAmount != null">
+        total_fee_amount = #{totalFeeAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="repairShopName != null">
+        repair_shop_name = #{repairShopName,jdbcType=VARCHAR},
+      </if>
+      <if test="repairShopCode != null">
+        repair_shop_code = #{repairShopCode,jdbcType=VARCHAR},
+      </if>
+      <if test="priceType != null">
+        price_type = #{priceType,jdbcType=VARCHAR},
+      </if>
+      <if test="accidentCause != null">
+        accident_cause = #{accidentCause,jdbcType=VARCHAR},
+      </if>
+      <if test="totalLoss != null">
+        total_loss = #{totalLoss,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        CREATE_BY = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where fee_info_id = #{feeInfoId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.liveneo.adapter.assessment.model.FeeInfo">
+    update fee_info
+    set org_code = #{orgCode,jdbcType=VARCHAR},
+      case_no = #{caseNo,jdbcType=VARCHAR},
+      loss_id = #{lossId,jdbcType=VARCHAR},
+      part_fee_code = #{partFeeCode,jdbcType=VARCHAR},
+      part_fee_name = #{partFeeName,jdbcType=VARCHAR},
+      part_fee_ph = #{partFeePh,jdbcType=VARCHAR},
+      vin = #{vin,jdbcType=VARCHAR},
+      brand_type = #{brandType,jdbcType=VARCHAR},
+      engine_no = #{engineNo,jdbcType=VARCHAR},
+      driver_name = #{driverName,jdbcType=VARCHAR},
+      parts_total_money = #{partsTotalMoney,jdbcType=VARCHAR},
+      labor_hours_total_money = #{laborHoursTotalMoney,jdbcType=VARCHAR},
+      ingredients_total_money = #{ingredientsTotalMoney,jdbcType=VARCHAR},
+      benefit_peoples_total_money = #{benefitPeoplesTotalMoney,jdbcType=VARCHAR},
+      fee_amount = #{feeAmount,jdbcType=VARCHAR},
+      rescues_total_money = #{rescuesTotalMoney,jdbcType=VARCHAR},
+      salvages_total_money = #{salvagesTotalMoney,jdbcType=VARCHAR},
+      total_fee_amount = #{totalFeeAmount,jdbcType=VARCHAR},
+      repair_shop_name = #{repairShopName,jdbcType=VARCHAR},
+      repair_shop_code = #{repairShopCode,jdbcType=VARCHAR},
+      price_type = #{priceType,jdbcType=VARCHAR},
+      accident_cause = #{accidentCause,jdbcType=VARCHAR},
+      total_loss = #{totalLoss,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      CREATE_BY = #{createBy,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_BY = #{updateBy,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where fee_info_id = #{feeInfoId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -7,6 +7,8 @@ import java.util.List;
 
 import com.google.gson.Gson;
 
+import logan.common.base.utils.FileHandler;
+import logan.common.base.utils.orm.GenSqlEntity;
 import logan.common.base.utils.reflect.*;
 import org.apache.commons.lang3.ClassUtils;
 import org.junit.Test;

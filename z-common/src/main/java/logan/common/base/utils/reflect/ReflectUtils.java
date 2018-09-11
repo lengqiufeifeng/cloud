@@ -51,7 +51,6 @@ public class ReflectUtils {
 					case "java.util.List":
 						invokeList(curr_obj, method, field);
 						break;
-
 					case "class java.lang.Integer":
 					case "interface java.util.List":
 					case "interface java.util.Map":

@@ -2,8 +2,8 @@ package logan.exempletest.service.user;
 
 
 import com.github.pagehelper.PageInfo;
-import logan.common.base.utils.json.JsonFormatTool;
-import logan.common.base.utils.json.JsonHandlerGson;
+import logan.common.base.boot.utils.json.JsonFormatTool;
+import logan.common.base.boot.utils.json.JsonHandlerGson;
 import logan.exemple.service.ServiceUserApplication;
 import logan.exemple.service.user.model.SysUser;
 import logan.exemple.service.user.service.SysUserService;

@@ -7,14 +7,18 @@ import com.fasterxml.jackson.databind.ser.BeanSerializerModifier;
 import com.google.common.collect.ImmutableList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.servlet.MultipartConfigElement;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -31,6 +35,10 @@ public class ServiceUserConfig {
         logger.info("--------系统加载自定义资源--------------------------");
         logger.info("----------完成自定义资源加载-----------------------------");
     }
+    @InitBinder//必须有一个参数WebDataBinder
+    public void initBinder(WebDataBinder binder) {
+//        binder.get
+    }
 //    @Bean
 //    public ServletRegistrationBean dispatcherRegistration(DispatcherServlet dispatcherServlet) {
 //        dispatcherServlet.setThrowExceptionIfNoHandlerFound(true);
@@ -40,11 +48,18 @@ public class ServiceUserConfig {
 
     @Bean
     public ServletListenerRegistrationBean servletListenerRegistrationBean() {
+//        @WebListener
         ServletListenerRegistrationBean servletListenerRegistrationBean = new ServletListenerRegistrationBean();
         servletListenerRegistrationBean.setListener(new UserContextLoader());
         return servletListenerRegistrationBean;
     }
-
+    @Bean
+    public MultipartConfigElement multipartConfigElement(){
+        MultipartConfigFactory factory=new MultipartConfigFactory();
+        factory.setMaxFileSize("100MB");
+        factory.setMaxRequestSize("120MB");
+        return factory.createMultipartConfig();
+    }
     @Bean
     public MappingJackson2HttpMessageConverter mappingJacksonHttpMessageConverter() {
         final MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();

@@ -1,10 +1,9 @@
 package logan.exemple.test.service;
 
-import logan.common.base.utils.json.JsonHandlerGson;
+import logan.common.base.boot.utils.json.JsonHandlerGson;
 import logan.exemple.service.monitoring.ServiceMtApplication;
 import logan.exemple.service.monitoring.model.SysLog;
 import logan.exemple.service.monitoring.service.SysLogMongoService;
-import logan.exemple.service.monitoring.service.SysLogService;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.text.ParseException;

@@ -2,6 +2,7 @@ group 'spring-exemple'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: "idea"
 
 version='1.0.0'
 archivesBaseName='logan_common_base'
@@ -16,6 +17,7 @@ dependencies {
     //邮件
     //异步
     compile group: 'org.apache.httpcomponents', name: 'httpasyncclient', version: '4.+'
+    compile 'org.apache.httpcomponents:httpmime:4.5.5'
     compile group: 'redis.clients', name: 'jedis', version: '2.9.+'
     //excel
     compile group: 'org.apache.poi', name: 'poi', version: '3.+'

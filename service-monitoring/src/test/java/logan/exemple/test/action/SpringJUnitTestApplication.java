@@ -1,7 +1,7 @@
 package logan.exemple.test.action;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import logan.common.base.utils.json.JsonFormatTool;
+import logan.common.base.boot.utils.json.JsonFormatTool;
 import logan.exemple.service.monitoring.ServiceMtApplication;
 import logan.exemple.service.monitoring.model.SysLog;
 import logan.exemple.service.monitoring.vo.SysLogVo;

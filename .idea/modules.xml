@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cloud.iml" filepath="$PROJECT_DIR$/cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eureka/eureka.iml" filepath="$PROJECT_DIR$/.idea/modules/eureka/eureka.iml" group="eureka" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eureka/eureka_main.iml" filepath="$PROJECT_DIR$/.idea/modules/eureka/eureka_main.iml" group="eureka" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eureka/eureka_test.iml" filepath="$PROJECT_DIR$/.idea/modules/eureka/eureka_test.iml" group="eureka" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/service-drools-dispatch/service-drools-dispatch.iml" filepath="$PROJECT_DIR$/.idea/modules/service-drools-dispatch/service-drools-dispatch.iml" group="service-drools-dispatch" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/service-drools-dispatch/service-drools-dispatch_main.iml" filepath="$PROJECT_DIR$/.idea/modules/service-drools-dispatch/service-drools-dispatch_main.iml" group="service-drools-dispatch" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/service-drools-dispatch/service-drools-dispatch_test.iml" filepath="$PROJECT_DIR$/.idea/modules/service-drools-dispatch/service-drools-dispatch_test.iml" group="service-drools-dispatch" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/service-monitoring/service-monitoring.iml" filepath="$PROJECT_DIR$/.idea/modules/service-monitoring/service-monitoring.iml" group="service-monitoring" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/service-monitoring/service-monitoring_main.iml" filepath="$PROJECT_DIR$/.idea/modules/service-monitoring/service-monitoring_main.iml" group="service-monitoring" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/service-monitoring/service-monitoring_test.iml" filepath="$PROJECT_DIR$/.idea/modules/service-monitoring/service-monitoring_test.iml" group="service-monitoring" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/service-spring-batch/service-spring-batch.iml" filepath="$PROJECT_DIR$/.idea/modules/service-spring-batch/service-spring-batch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/service-user/service-user.iml" filepath="$PROJECT_DIR$/.idea/modules/service-user/service-user.iml" group="service-user" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/service-user/service-user_main.iml" filepath="$PROJECT_DIR$/.idea/modules/service-user/service-user_main.iml" group="service-user" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/service-user/service-user_test.iml" filepath="$PROJECT_DIR$/.idea/modules/service-user/service-user_test.iml" group="service-user" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/z-common/z-common.iml" filepath="$PROJECT_DIR$/.idea/modules/z-common/z-common.iml" group="z-common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/z-common/z-common_main.iml" filepath="$PROJECT_DIR$/.idea/modules/z-common/z-common_main.iml" group="z-common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/z-common/z-common_test.iml" filepath="$PROJECT_DIR$/.idea/modules/z-common/z-common_test.iml" group="z-common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/zookeeper/zookeeper.iml" filepath="$PROJECT_DIR$/.idea/modules/zookeeper/zookeeper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/zookeeper-client/zookeeper-client.iml" filepath="$PROJECT_DIR$/.idea/modules/zookeeper-client/zookeeper-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/zuul-gateway/zuul-gateway.iml" filepath="$PROJECT_DIR$/.idea/modules/zuul-gateway/zuul-gateway.iml" group="zuul-gateway" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/zuul-gateway/zuul-gateway_main.iml" filepath="$PROJECT_DIR$/.idea/modules/zuul-gateway/zuul-gateway_main.iml" group="zuul-gateway" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/zuul-gateway/zuul-gateway_test.iml" filepath="$PROJECT_DIR$/.idea/modules/zuul-gateway/zuul-gateway_test.iml" group="zuul-gateway" />
+    </modules>
+  </component>
+</project>

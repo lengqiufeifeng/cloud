@@ -15,8 +15,8 @@ configurations {
     //
     // 所有需要忽略的包定义在此
     //
-        all*.exclude module: 'spring-boot-starter-logging'
-        all*.exclude module: 'slf4j-log4j12'
+    all*.exclude module: 'spring-boot-starter-logging'
+    all*.exclude module: 'slf4j-log4j12'
 }
 dependencies {
     compile project(":z-common")
@@ -24,7 +24,7 @@ dependencies {
     compile("org.springframework.batch:spring-batch-admin-resources:2.+") {
 //        exclude module: 'slf4j-log4j12'
     }
-    compile("org.springframework.batch:spring-batch-admin-manager:2.+"){
+    compile("org.springframework.batch:spring-batch-admin-manager:2.+") {
 //        exclude module: 'slf4j-log4j12'
     }
     compile("org.springframework.boot:spring-boot-starter-log4j2")

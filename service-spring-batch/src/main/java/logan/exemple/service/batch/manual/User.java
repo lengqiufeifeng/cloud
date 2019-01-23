@@ -15,6 +15,7 @@ public class User {
     private String aliasName;
     private String createBy;
     private Date createTime;
+
     public String getUserName() {
         return userName;
     }
@@ -54,7 +55,6 @@ public class User {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
-
 
 
 }

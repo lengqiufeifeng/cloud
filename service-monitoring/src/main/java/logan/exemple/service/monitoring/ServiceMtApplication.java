@@ -2,6 +2,7 @@ package logan.exemple.service.monitoring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.ConfigurableApplicationContext;
 
 /**
@@ -10,11 +11,11 @@ import org.springframework.context.ConfigurableApplicationContext;
  */
 
 @SpringBootApplication
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 public class ServiceMtApplication {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext app= SpringApplication.run(ServiceMtApplication.class, args);
+        ConfigurableApplicationContext app = SpringApplication.run(ServiceMtApplication.class, args);
 
     }
 

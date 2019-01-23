@@ -1,128 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liveneo.adapter.assessment.dao.YxGarageImgMapper">
-  <resultMap id="BaseResultMap" type="com.liveneo.adapter.assessment.model.YxGarageImg">
-    <id column="img_id" jdbcType="VARCHAR" property="imgId" />
-    <result column="rf_id" jdbcType="VARCHAR" property="rfId" />
-    <result column="img_osskey" jdbcType="VARCHAR" property="imgOsskey" />
-    <result column="photo_order" jdbcType="VARCHAR" property="photoOrder" />
-    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    img_id, rf_id, img_osskey, photo_order, create_by, create_time, update_by, update_time
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from yx_garage_img
-    where img_id = #{imgId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from yx_garage_img
-    where img_id = #{imgId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.liveneo.adapter.assessment.model.YxGarageImg">
-    insert into yx_garage_img (img_id, rf_id, img_osskey, 
-      photo_order, create_by, create_time, 
-      update_by, update_time)
-    values (#{imgId,jdbcType=VARCHAR}, #{rfId,jdbcType=VARCHAR}, #{imgOsskey,jdbcType=VARCHAR}, 
-      #{photoOrder,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="com.liveneo.adapter.assessment.model.YxGarageImg">
-    insert into yx_garage_img
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="imgId != null">
-        img_id,
-      </if>
-      <if test="rfId != null">
-        rf_id,
-      </if>
-      <if test="imgOsskey != null">
-        img_osskey,
-      </if>
-      <if test="photoOrder != null">
-        photo_order,
-      </if>
-      <if test="createBy != null">
-        create_by,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="updateBy != null">
-        update_by,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="imgId != null">
-        #{imgId,jdbcType=VARCHAR},
-      </if>
-      <if test="rfId != null">
-        #{rfId,jdbcType=VARCHAR},
-      </if>
-      <if test="imgOsskey != null">
-        #{imgOsskey,jdbcType=VARCHAR},
-      </if>
-      <if test="photoOrder != null">
-        #{photoOrder,jdbcType=VARCHAR},
-      </if>
-      <if test="createBy != null">
-        #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateBy != null">
-        #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liveneo.adapter.assessment.model.YxGarageImg">
-    update yx_garage_img
-    <set>
-      <if test="rfId != null">
-        rf_id = #{rfId,jdbcType=VARCHAR},
-      </if>
-      <if test="imgOsskey != null">
+    <resultMap id="BaseResultMap" type="com.liveneo.adapter.assessment.model.YxGarageImg">
+        <id column="img_id" jdbcType="VARCHAR" property="imgId"/>
+        <result column="rf_id" jdbcType="VARCHAR" property="rfId"/>
+        <result column="img_osskey" jdbcType="VARCHAR" property="imgOsskey"/>
+        <result column="photo_order" jdbcType="VARCHAR" property="photoOrder"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        img_id, rf_id, img_osskey, photo_order, create_by, create_time, update_by, update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from yx_garage_img
+        where img_id = #{imgId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from yx_garage_img
+        where img_id = #{imgId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.liveneo.adapter.assessment.model.YxGarageImg">
+        insert into yx_garage_img (img_id, rf_id, img_osskey,
+        photo_order, create_by, create_time,
+        update_by, update_time)
+        values (#{imgId,jdbcType=VARCHAR}, #{rfId,jdbcType=VARCHAR}, #{imgOsskey,jdbcType=VARCHAR},
+        #{photoOrder,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+        #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="com.liveneo.adapter.assessment.model.YxGarageImg">
+        insert into yx_garage_img
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="imgId != null">
+                img_id,
+            </if>
+            <if test="rfId != null">
+                rf_id,
+            </if>
+            <if test="imgOsskey != null">
+                img_osskey,
+            </if>
+            <if test="photoOrder != null">
+                photo_order,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="imgId != null">
+                #{imgId,jdbcType=VARCHAR},
+            </if>
+            <if test="rfId != null">
+                #{rfId,jdbcType=VARCHAR},
+            </if>
+            <if test="imgOsskey != null">
+                #{imgOsskey,jdbcType=VARCHAR},
+            </if>
+            <if test="photoOrder != null">
+                #{photoOrder,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.liveneo.adapter.assessment.model.YxGarageImg">
+        update yx_garage_img
+        <set>
+            <if test="rfId != null">
+                rf_id = #{rfId,jdbcType=VARCHAR},
+            </if>
+            <if test="imgOsskey != null">
+                img_osskey = #{imgOsskey,jdbcType=VARCHAR},
+            </if>
+            <if test="photoOrder != null">
+                photo_order = #{photoOrder,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where img_id = #{imgId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.liveneo.adapter.assessment.model.YxGarageImg">
+        update yx_garage_img
+        set rf_id = #{rfId,jdbcType=VARCHAR},
         img_osskey = #{imgOsskey,jdbcType=VARCHAR},
-      </if>
-      <if test="photoOrder != null">
         photo_order = #{photoOrder,jdbcType=VARCHAR},
-      </if>
-      <if test="createBy != null">
         create_by = #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateBy != null">
         update_by = #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where img_id = #{imgId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.liveneo.adapter.assessment.model.YxGarageImg">
-    update yx_garage_img
-    set rf_id = #{rfId,jdbcType=VARCHAR},
-      img_osskey = #{imgOsskey,jdbcType=VARCHAR},
-      photo_order = #{photoOrder,jdbcType=VARCHAR},
-      create_by = #{createBy,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_by = #{updateBy,jdbcType=VARCHAR},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where img_id = #{imgId,jdbcType=VARCHAR}
-  </update>
+        update_time = #{updateTime,jdbcType=TIMESTAMP}
+        where img_id = #{imgId,jdbcType=VARCHAR}
+    </update>
 </mapper>

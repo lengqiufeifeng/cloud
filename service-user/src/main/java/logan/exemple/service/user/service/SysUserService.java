@@ -17,9 +17,10 @@ public class SysUserService {
     public int insert(SysUser record) {
         return sysUserMapper.insert(record);
     }
-   public PageInfo<SysUser> getListBySysUser(SysUser record,int pageNum ,int pageSize){
-        PageHelper.startPage(pageNum,pageSize);
-        List<SysUser> listUser=sysUserMapper.getListBySysUser(record);
+
+    public PageInfo<SysUser> getListBySysUser(SysUser record, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<SysUser> listUser = sysUserMapper.getListBySysUser(record);
         return new PageInfo<SysUser>(listUser);
 
     }

@@ -26,24 +26,27 @@ public class SysLogMongoService {
     public SysLog saveSysLog(SysLog sysLog) {
         return sysLogMongoDao.save(sysLog);
     }
-   public List<SysLog> findBySysCode(String sysCode,String serviceCode,Date createTime){
-      return sysLogMongoDao.findBySysCode(sysCode,serviceCode,createTime);
-   }
+
+    public List<SysLog> findBySysCode(String sysCode, String serviceCode, Date createTime) {
+        return sysLogMongoDao.findBySysCode(sysCode, serviceCode, createTime);
+    }
 
     /**
      * 使用 mongoTemplate
+     *
      * @param sysLog
      * @return
      */
     public SysLog findOne(SysLog sysLog) {
-        Criteria criteria = Criteria.where("sysCode")
+        Criteria criteria = Criteria.where("sysCode" )
                 .is(sysLog.sysCode)
-                .and("createTime")
+                .and("createTime" )
                 .gte(sysLog.createTime);
         Query query = new Query(criteria);
 
         return mongoTemplate.findOne(query, SysLog.class);
     }
+
     /**
      * 根据属性查询，不处理时间段
      *
@@ -53,7 +56,7 @@ public class SysLogMongoService {
      * @return
      */
     public Page<SysLog> findSysLogs(SysLog sysLog, int size, int page) {
-        Sort sort = new Sort(Sort.Direction.DESC, "createTime");
+        Sort sort = new Sort(Sort.Direction.DESC, "createTime" );
         Pageable pageable = PageRequest.of(page - 1, size, sort);
         Page<SysLog> lt = null;
         if (null == sysLog) {
@@ -62,7 +65,7 @@ public class SysLogMongoService {
         } else {
             //创建匹配器，即如何使用查询条件
             ExampleMatcher matcher = ExampleMatcher.matching();
-            matcher.withIgnorePaths("createTime", "updateTime");
+            matcher.withIgnorePaths("createTime", "updateTime" );
             Example<SysLog> example = Example.of(sysLog, matcher);
             lt = sysLogMongoDao.findAll(example, pageable);
         }

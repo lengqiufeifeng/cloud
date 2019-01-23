@@ -18,20 +18,22 @@ import org.springframework.stereotype.Component;
 @Component
 public class FanoutReceiver {
     @RabbitHandler
-    @RabbitListener(queues = "fanout.A")
+    @RabbitListener(queues = "fanout.A" )
     public void processa(String message) {
         System.out.println("fanout Receiver A  : " + message);
     }
+
     @RabbitHandler
-    @RabbitListener(queues = "fanout.B")
-    public void processb(Message message, Channel channel)  throws Exception{
+    @RabbitListener(queues = "fanout.B" )
+    public void processb(Message message, Channel channel) throws Exception {
         System.out.println("fanout Receiver B  : " + message);
-        channel.basicAck(message.getMessageProperties().getDeliveryTag(),false);
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
     }
+
     @RabbitHandler
-    @RabbitListener(queues = "fanout.C")
-    public void processc(Message message, Channel channel) throws Exception{
+    @RabbitListener(queues = "fanout.C" )
+    public void processc(Message message, Channel channel) throws Exception {
         System.out.println("fanout Receiver C  : " + message);
-        channel.basicNack(message.getMessageProperties().getDeliveryTag(),true,false);
+        channel.basicNack(message.getMessageProperties().getDeliveryTag(), true, false);
     }
 }

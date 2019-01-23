@@ -18,14 +18,14 @@ public class DataSourceAspect {
     /**
      * 使用空方法定义切点表达式 user
      */
-    @Pointcut("execution(* logan.exemple.service.user.dao..*(..))")
+    @Pointcut("execution(* logan.exemple.service.user.dao..*(..))" )
     public void declareJointPointUser() {
     }
 
     /**
      * 使用定义切点表达式的方法进行切点表达式的引入 user
      */
-    @Before("declareJointPointUser()")
+    @Before("declareJointPointUser()" )
     public void setDataSourceKey(JoinPoint point) {
         DataSourceContextHolder.setDbType(DataSourceContextHolder.DbType.MASTER);
 
@@ -34,14 +34,14 @@ public class DataSourceAspect {
     /**
      * 使用空方法定义切点表达式 logs
      */
-    @Pointcut("execution(* logan.exemple.service.monitoring.dao..*(..))")
+    @Pointcut("execution(* logan.exemple.service.monitoring.dao..*(..))" )
     public void declareJointPointMonitoring() {
     }
 
     /**
      * 使用定义切点表达式的方法进行切点表达式的引入 user
      */
-    @Before("declareJointPointMonitoring()")
+    @Before("declareJointPointMonitoring()" )
     public void setDataSourceKeyMonitoring(JoinPoint point) {
         DataSourceContextHolder.setDbType(DataSourceContextHolder.DbType.SLAVE);
     }

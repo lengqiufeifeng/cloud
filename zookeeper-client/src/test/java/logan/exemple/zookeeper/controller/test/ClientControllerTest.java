@@ -53,7 +53,7 @@ public class ClientControllerTest {
 
     @Before
     public void setupMockMvc() throws Exception {
-        DispatcherServlet dispatcherServlet = (DispatcherServlet) context.getBean("dispatcherServlet");
+        DispatcherServlet dispatcherServlet = (DispatcherServlet) context.getBean("dispatcherServlet" );
 //        dispatcherServlet.setThrowExceptionIfNoHandlerFound(true);
         mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
         mapper = mappingJackson2HttpMessageConverter.getObjectMapper();
@@ -71,7 +71,7 @@ public class ClientControllerTest {
         //调用接口，传入添加的用户参数
         try {
             ResultActions result = mockMvc.perform(
-                    get("/client/getUserById/123")
+                    get("/client/getUserById/123" )
                             .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
             );
             //判断返回值，是否达到预期，
@@ -102,10 +102,10 @@ public class ClientControllerTest {
         //调用接口，传入添加的用户参数
         try {
             ResultActions result = mockMvc.perform(
-                    post("/client/getUserByIdOrUserName")
-                            .header("User-Agent", "mockMvc")
+                    post("/client/getUserByIdOrUserName" )
+                            .header("User-Agent", "mockMvc" )
                             .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-                            .param("id", "123466")
+                            .param("id", "123466" )
             );
             String s = result.andDo(MockMvcResultHandlers.print()).andReturn().getResponse().getContentAsString();
             System.err.println("返回结果：" + s);
@@ -125,9 +125,9 @@ public class ClientControllerTest {
         //调用接口，传入添加的用户参数
         try {
             ResultActions result = mockMvc.perform(
-                    get("/client/getUserById")
+                    get("/client/getUserById" )
                             .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-                            .param("id", "123466")
+                            .param("id", "123466" )
             );
             String s = result.andDo(MockMvcResultHandlers.print()).andReturn().getResponse().getContentAsString();
             System.err.println("返回结果：" + s);
@@ -145,11 +145,11 @@ public class ClientControllerTest {
     public void getUserByUser() throws Exception {
         User user = new User();
         user.setId(123456);
-        user.setName("zk");
+        user.setName("zk" );
         //调用接口，传入添加的用户参数
         try {
             ResultActions result = mockMvc.perform(
-                    post("/client/getUserByUser")
+                    post("/client/getUserByUser" )
                             .contentType(MediaType.APPLICATION_JSON_UTF8)
                             .content(mapper.writeValueAsString(user))
             );

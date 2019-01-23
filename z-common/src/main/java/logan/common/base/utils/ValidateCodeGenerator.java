@@ -6,9 +6,8 @@ import java.util.Random;
 
 /**
  * 验证码生成器
- * 
+ *
  * @author zhangpanfeng
- * 
  */
 public class ValidateCodeGenerator {
     public static ValidateCode generateNumberValidateCode() {

@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 完全匹配 and amq.direct
+ *
  * @author logan
  * @Title: ${file_name}
  * @Package ${package_name}
@@ -26,12 +27,12 @@ public class DirectRabbitConfig {
 
     @Bean
     DirectExchange exchange() {
-        return new DirectExchange("topicExchange");
+        return new DirectExchange("topicExchange" );
     }
 
     @Bean
     Binding bindingExchangeMessage(Queue queueMessage, TopicExchange exchange) {
-        return BindingBuilder.bind(queueMessage).to(exchange).with("topic.message");
+        return BindingBuilder.bind(queueMessage).to(exchange).with("topic.message" );
     }
 
 }

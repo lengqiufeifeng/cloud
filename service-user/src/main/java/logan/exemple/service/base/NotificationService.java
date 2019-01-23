@@ -12,10 +12,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class NotificationService {
     private Logger logger = LoggerFactory.getLogger(getClass());
+
     /**
      * 发送通知
      */
-    public void sendNtc(Notification notification){
+    public void sendNtc(Notification notification) {
         //TODO 待优化
 
     }

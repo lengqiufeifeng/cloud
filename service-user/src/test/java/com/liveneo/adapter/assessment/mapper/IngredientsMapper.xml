@@ -1,142 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liveneo.adapter.assessment.dao.IngredientsMapper">
-  <resultMap id="BaseResultMap" type="com.liveneo.adapter.assessment.model.Ingredients">
-    <id column="ingredients_id" jdbcType="VARCHAR" property="ingredientsId" />
-    <result column="case_no" jdbcType="VARCHAR" property="caseNo" />
-    <result column="loss_id" jdbcType="VARCHAR" property="lossId" />
-    <result column="ingredients_name" jdbcType="VARCHAR" property="ingredientsName" />
-    <result column="price" jdbcType="VARCHAR" property="price" />
-    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
-    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
-    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    ingredients_id, case_no, loss_id, ingredients_name, price, CREATE_BY, CREATE_TIME, 
-    UPDATE_BY, UPDATE_TIME
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from ingredients
-    where ingredients_id = #{ingredientsId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from ingredients
-    where ingredients_id = #{ingredientsId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.liveneo.adapter.assessment.model.Ingredients">
-    insert into ingredients (ingredients_id, case_no, loss_id, 
-      ingredients_name, price, CREATE_BY, 
-      CREATE_TIME, UPDATE_BY, UPDATE_TIME
-      )
-    values (#{ingredientsId,jdbcType=VARCHAR}, #{caseNo,jdbcType=VARCHAR}, #{lossId,jdbcType=VARCHAR}, 
-      #{ingredientsName,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.liveneo.adapter.assessment.model.Ingredients">
-    insert into ingredients
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ingredientsId != null">
-        ingredients_id,
-      </if>
-      <if test="caseNo != null">
-        case_no,
-      </if>
-      <if test="lossId != null">
-        loss_id,
-      </if>
-      <if test="ingredientsName != null">
-        ingredients_name,
-      </if>
-      <if test="price != null">
-        price,
-      </if>
-      <if test="createBy != null">
-        CREATE_BY,
-      </if>
-      <if test="createTime != null">
-        CREATE_TIME,
-      </if>
-      <if test="updateBy != null">
-        UPDATE_BY,
-      </if>
-      <if test="updateTime != null">
-        UPDATE_TIME,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ingredientsId != null">
-        #{ingredientsId,jdbcType=VARCHAR},
-      </if>
-      <if test="caseNo != null">
-        #{caseNo,jdbcType=VARCHAR},
-      </if>
-      <if test="lossId != null">
-        #{lossId,jdbcType=VARCHAR},
-      </if>
-      <if test="ingredientsName != null">
-        #{ingredientsName,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null">
-        #{price,jdbcType=VARCHAR},
-      </if>
-      <if test="createBy != null">
-        #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateBy != null">
-        #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liveneo.adapter.assessment.model.Ingredients">
-    update ingredients
-    <set>
-      <if test="caseNo != null">
-        case_no = #{caseNo,jdbcType=VARCHAR},
-      </if>
-      <if test="lossId != null">
+    <resultMap id="BaseResultMap" type="com.liveneo.adapter.assessment.model.Ingredients">
+        <id column="ingredients_id" jdbcType="VARCHAR" property="ingredientsId"/>
+        <result column="case_no" jdbcType="VARCHAR" property="caseNo"/>
+        <result column="loss_id" jdbcType="VARCHAR" property="lossId"/>
+        <result column="ingredients_name" jdbcType="VARCHAR" property="ingredientsName"/>
+        <result column="price" jdbcType="VARCHAR" property="price"/>
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        ingredients_id, case_no, loss_id, ingredients_name, price, CREATE_BY, CREATE_TIME,
+        UPDATE_BY, UPDATE_TIME
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ingredients
+        where ingredients_id = #{ingredientsId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from ingredients
+        where ingredients_id = #{ingredientsId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.liveneo.adapter.assessment.model.Ingredients">
+        insert into ingredients (ingredients_id, case_no, loss_id,
+        ingredients_name, price, CREATE_BY,
+        CREATE_TIME, UPDATE_BY, UPDATE_TIME
+        )
+        values (#{ingredientsId,jdbcType=VARCHAR}, #{caseNo,jdbcType=VARCHAR}, #{lossId,jdbcType=VARCHAR},
+        #{ingredientsName,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR},
+        #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.liveneo.adapter.assessment.model.Ingredients">
+        insert into ingredients
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="ingredientsId != null">
+                ingredients_id,
+            </if>
+            <if test="caseNo != null">
+                case_no,
+            </if>
+            <if test="lossId != null">
+                loss_id,
+            </if>
+            <if test="ingredientsName != null">
+                ingredients_name,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+            <if test="createBy != null">
+                CREATE_BY,
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME,
+            </if>
+            <if test="updateBy != null">
+                UPDATE_BY,
+            </if>
+            <if test="updateTime != null">
+                UPDATE_TIME,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="ingredientsId != null">
+                #{ingredientsId,jdbcType=VARCHAR},
+            </if>
+            <if test="caseNo != null">
+                #{caseNo,jdbcType=VARCHAR},
+            </if>
+            <if test="lossId != null">
+                #{lossId,jdbcType=VARCHAR},
+            </if>
+            <if test="ingredientsName != null">
+                #{ingredientsName,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.liveneo.adapter.assessment.model.Ingredients">
+        update ingredients
+        <set>
+            <if test="caseNo != null">
+                case_no = #{caseNo,jdbcType=VARCHAR},
+            </if>
+            <if test="lossId != null">
+                loss_id = #{lossId,jdbcType=VARCHAR},
+            </if>
+            <if test="ingredientsName != null">
+                ingredients_name = #{ingredientsName,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                price = #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null">
+                CREATE_BY = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                UPDATE_BY = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where ingredients_id = #{ingredientsId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.liveneo.adapter.assessment.model.Ingredients">
+        update ingredients
+        set case_no = #{caseNo,jdbcType=VARCHAR},
         loss_id = #{lossId,jdbcType=VARCHAR},
-      </if>
-      <if test="ingredientsName != null">
         ingredients_name = #{ingredientsName,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null">
         price = #{price,jdbcType=VARCHAR},
-      </if>
-      <if test="createBy != null">
         CREATE_BY = #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
         CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateBy != null">
         UPDATE_BY = #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where ingredients_id = #{ingredientsId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.liveneo.adapter.assessment.model.Ingredients">
-    update ingredients
-    set case_no = #{caseNo,jdbcType=VARCHAR},
-      loss_id = #{lossId,jdbcType=VARCHAR},
-      ingredients_name = #{ingredientsName,jdbcType=VARCHAR},
-      price = #{price,jdbcType=VARCHAR},
-      CREATE_BY = #{createBy,jdbcType=VARCHAR},
-      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      UPDATE_BY = #{updateBy,jdbcType=VARCHAR},
-      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
-    where ingredients_id = #{ingredientsId,jdbcType=VARCHAR}
-  </update>
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+        where ingredients_id = #{ingredientsId,jdbcType=VARCHAR}
+    </update>
 </mapper>

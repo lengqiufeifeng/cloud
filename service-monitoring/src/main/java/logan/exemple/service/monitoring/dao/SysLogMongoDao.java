@@ -14,14 +14,14 @@ import java.util.List;
 public interface SysLogMongoDao extends MongoRepository<SysLog, String> {
 
     /**
-     *
      * 注意注解要空格分隔
+     *
      * @param sysCode
      * @param serviceCode
-     * @param createTime =< 结果
+     * @param createTime  =< 结果
      * @return
      */
-    @Query(value="{ 'sysCode' : ?0 , 'serviceCode' : ?1 , 'createTime' : { '$gte' : ?2 } }",fields = "{ '_id' : 0 }")
+    @Query(value = "{ 'sysCode' : ?0 , 'serviceCode' : ?1 , 'createTime' : { '$gte' : ?2 } }", fields = "{ '_id' : 0 }" )
     List<SysLog> findBySysCode(String sysCode, String serviceCode, Date createTime);
 
 }

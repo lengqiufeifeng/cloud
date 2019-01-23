@@ -26,11 +26,12 @@ import javax.annotation.Resource;
 public class SpringJUnitTestApplication {
     @Resource
     SysLogService sysLogService;
+
     @Test
-    public void saveSysLogs(){
-        SysLog saveSysLog=new SysLog();
-        saveSysLog.setSysCode("user");
-        int result  = sysLogService.insert(saveSysLog);
+    public void saveSysLogs() {
+        SysLog saveSysLog = new SysLog();
+        saveSysLog.setSysCode("user" );
+        int result = sysLogService.insert(saveSysLog);
 
     }
 }

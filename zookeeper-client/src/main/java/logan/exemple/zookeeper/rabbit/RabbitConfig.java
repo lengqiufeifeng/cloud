@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Scope;
 
 /**
  * 服务端使用
+ *
  * @author logan
  * @Title: ${file_name}
  * @Package ${package_name}
@@ -23,7 +24,8 @@ import org.springframework.context.annotation.Scope;
 public class RabbitConfig {
     @Autowired
     private ConnectionFactory connectionFactory;
-//    @Bean(name="firstRabbitTemplate")
+
+    //    @Bean(name="firstRabbitTemplate")
 //    @Primary
 //    public RabbitTemplate firstRabbitTemplate(
 //            @Qualifier("firstConnectionFactory") ConnectionFactory connectionFactory

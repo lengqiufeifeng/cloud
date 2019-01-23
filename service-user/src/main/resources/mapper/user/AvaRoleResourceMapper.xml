@@ -1,117 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="logan.exemple.service.user.dao.AvaRoleResourceMapper">
-  <resultMap id="BaseResultMap" type="logan.exemple.service.user.model.AvaRoleResource">
-    <id column="role_resource_id" jdbcType="VARCHAR" property="roleResourceId" />
-    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
-    <result column="resource_id" jdbcType="VARCHAR" property="resourceId" />
-    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    role_resource_id, role_id, resource_id, create_by, create_time, update_by, update_time
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from ava_role_resource
-    where role_resource_id = #{roleResourceId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from ava_role_resource
-    where role_resource_id = #{roleResourceId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="logan.exemple.service.user.model.AvaRoleResource">
-    insert into ava_role_resource (role_resource_id, role_id, resource_id, 
-      create_by, create_time, update_by, 
-      update_time)
-    values (#{roleResourceId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}, #{resourceId,jdbcType=VARCHAR}, 
-      #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
-      #{updateTime,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="logan.exemple.service.user.model.AvaRoleResource">
-    insert into ava_role_resource
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="roleResourceId != null">
-        role_resource_id,
-      </if>
-      <if test="roleId != null">
-        role_id,
-      </if>
-      <if test="resourceId != null">
-        resource_id,
-      </if>
-      <if test="createBy != null">
-        create_by,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="updateBy != null">
-        update_by,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="roleResourceId != null">
-        #{roleResourceId,jdbcType=VARCHAR},
-      </if>
-      <if test="roleId != null">
-        #{roleId,jdbcType=VARCHAR},
-      </if>
-      <if test="resourceId != null">
-        #{resourceId,jdbcType=VARCHAR},
-      </if>
-      <if test="createBy != null">
-        #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateBy != null">
-        #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="logan.exemple.service.user.model.AvaRoleResource">
-    update ava_role_resource
-    <set>
-      <if test="roleId != null">
-        role_id = #{roleId,jdbcType=VARCHAR},
-      </if>
-      <if test="resourceId != null">
+    <resultMap id="BaseResultMap" type="logan.exemple.service.user.model.AvaRoleResource">
+        <id column="role_resource_id" jdbcType="VARCHAR" property="roleResourceId"/>
+        <result column="role_id" jdbcType="VARCHAR" property="roleId"/>
+        <result column="resource_id" jdbcType="VARCHAR" property="resourceId"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        role_resource_id, role_id, resource_id, create_by, create_time, update_by, update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ava_role_resource
+        where role_resource_id = #{roleResourceId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from ava_role_resource
+        where role_resource_id = #{roleResourceId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="logan.exemple.service.user.model.AvaRoleResource">
+        insert into ava_role_resource (role_resource_id, role_id, resource_id,
+        create_by, create_time, update_by,
+        update_time)
+        values (#{roleResourceId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}, #{resourceId,jdbcType=VARCHAR},
+        #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR},
+        #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="logan.exemple.service.user.model.AvaRoleResource">
+        insert into ava_role_resource
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="roleResourceId != null">
+                role_resource_id,
+            </if>
+            <if test="roleId != null">
+                role_id,
+            </if>
+            <if test="resourceId != null">
+                resource_id,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="roleResourceId != null">
+                #{roleResourceId,jdbcType=VARCHAR},
+            </if>
+            <if test="roleId != null">
+                #{roleId,jdbcType=VARCHAR},
+            </if>
+            <if test="resourceId != null">
+                #{resourceId,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="logan.exemple.service.user.model.AvaRoleResource">
+        update ava_role_resource
+        <set>
+            <if test="roleId != null">
+                role_id = #{roleId,jdbcType=VARCHAR},
+            </if>
+            <if test="resourceId != null">
+                resource_id = #{resourceId,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where role_resource_id = #{roleResourceId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="logan.exemple.service.user.model.AvaRoleResource">
+        update ava_role_resource
+        set role_id = #{roleId,jdbcType=VARCHAR},
         resource_id = #{resourceId,jdbcType=VARCHAR},
-      </if>
-      <if test="createBy != null">
         create_by = #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateBy != null">
         update_by = #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where role_resource_id = #{roleResourceId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="logan.exemple.service.user.model.AvaRoleResource">
-    update ava_role_resource
-    set role_id = #{roleId,jdbcType=VARCHAR},
-      resource_id = #{resourceId,jdbcType=VARCHAR},
-      create_by = #{createBy,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_by = #{updateBy,jdbcType=VARCHAR},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where role_resource_id = #{roleResourceId,jdbcType=VARCHAR}
-  </update>
+        update_time = #{updateTime,jdbcType=TIMESTAMP}
+        where role_resource_id = #{roleResourceId,jdbcType=VARCHAR}
+    </update>
 </mapper>

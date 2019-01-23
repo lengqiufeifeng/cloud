@@ -52,7 +52,7 @@ public class SpringJUnitTestApplication {
 
     @Before
     public void setupMockMvc() throws Exception {
-        DispatcherServlet dispatcherServlet = (DispatcherServlet) context.getBean("dispatcherServlet");
+        DispatcherServlet dispatcherServlet = (DispatcherServlet) context.getBean("dispatcherServlet" );
 //        dispatcherServlet.setThrowExceptionIfNoHandlerFound(true);
         mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
         mapper = mappingJackson2HttpMessageConverter.getObjectMapper();
@@ -96,7 +96,7 @@ public class SpringJUnitTestApplication {
 //        }
         //调用接口，传入添加的用户参数
         try {
-            ResultActions result = mockMvc.perform(post("/log/addlogp")
+            ResultActions result = mockMvc.perform(post("/log/addlogp" )
                     .contentType(MediaType.APPLICATION_JSON_UTF8)
                     .content(mapper.writeValueAsString(sysLog)))
                     //判断返回值，是否达到预期，
@@ -120,10 +120,10 @@ public class SpringJUnitTestApplication {
         //构造添加的用户信息
         SysLogVo sysLog = new SysLogVo();
         sysLog.sysCode = "logan/exemple/test";
-        sysLog.beginDate = DateUtils.parseDate("2017-09-20 00:34:57","yyyy-MM-dd HH:mm:ss");
-        sysLog.endDate =DateUtils.parseDate("2017-09-21 00:34:57","yyyy-MM-dd HH:mm:ss");
+        sysLog.beginDate = DateUtils.parseDate("2017-09-20 00:34:57", "yyyy-MM-dd HH:mm:ss" );
+        sysLog.endDate = DateUtils.parseDate("2017-09-21 00:34:57", "yyyy-MM-dd HH:mm:ss" );
         try {
-            ResultActions result = mockMvc.perform(post("/log/getlogs/2/2")
+            ResultActions result = mockMvc.perform(post("/log/getlogs/2/2" )
                     .contentType(MediaType.APPLICATION_JSON_UTF8)
                     .content(mapper.writeValueAsString(sysLog)))
                     //判断返回值，是否达到预期，

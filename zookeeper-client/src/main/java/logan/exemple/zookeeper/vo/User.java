@@ -10,8 +10,9 @@ package logan.exemple.zookeeper.vo;
  * @updateTime ${update_time}
  */
 public class User {
-    private  int Id;
+    private int Id;
     private String name;
+
     public int getId() {
         return Id;
     }

@@ -7,7 +7,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 /**
  * 继承SpringBootServletInitializer，打包war
- *  * Created by lzr on 2017/4/15.
+ * * Created by lzr on 2017/4/15.
  */
 @SpringBootApplication
 public class DispatchApplication extends SpringBootServletInitializer {

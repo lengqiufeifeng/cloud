@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 发所有
+ *
  * @author logan
  * @Title: ${file_name}
  * @Package ${package_name}
@@ -21,22 +22,22 @@ import org.springframework.context.annotation.Configuration;
 public class FanoutRabbitConfig {
     @Bean
     public Queue AMessage() {
-        return new Queue("fanout.A");
+        return new Queue("fanout.A" );
     }
 
     @Bean
     public Queue BMessage() {
-        return new Queue("fanout.B");
+        return new Queue("fanout.B" );
     }
 
     @Bean
     public Queue CMessage() {
-        return new Queue("fanout.C");
+        return new Queue("fanout.C" );
     }
 
     @Bean
     FanoutExchange fanoutExchange() {
-        return new FanoutExchange("fanoutExchange");
+        return new FanoutExchange("fanoutExchange" );
     }
 
     @Bean

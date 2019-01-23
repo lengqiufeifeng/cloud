@@ -14,7 +14,7 @@ public class SerializeUtils {
 
     /**
      * 反序列化
-     * 
+     *
      * @param bytes
      * @return
      */
@@ -47,7 +47,7 @@ public class SerializeUtils {
 
     /**
      * 序列化
-     * 
+     *
      * @param object
      * @return
      */
@@ -61,7 +61,7 @@ public class SerializeUtils {
             try {
                 if (!(object instanceof Serializable)) {
                     throw new IllegalArgumentException(SerializeUtils.class.getSimpleName()
-                            + " requires a Serializable payload but received an object of type [" + object.getClass().getName() + "]");
+                            + " requires a Serializable payload but received an object of type [" + object.getClass().getName() + "]" );
                 }
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteStream);
                 objectOutputStream.writeObject(object);

@@ -8,23 +8,25 @@ import java.util.Calendar;
  * @Title：IDUtil
  * @address: http://www.liveneo.com.cn/
  * @author: zhaoyy
- * @version: 1.0 
+ * @version: 1.0
  * @date: 2016年11月2日 下午6:02:40
  */
 public final class IDUtil {
     private static final FieldPosition HELPER_POSITION = new FieldPosition(0);
-    private final static Format        dateFormat      = new SimpleDateFormat("yyyyMMddHHmmss");
-    private final static NumberFormat  numberFormat    = new DecimalFormat("0000");
-    private static int                 seq             = 0;
-    private static final int           MAX             = 9999;
+    private final static Format dateFormat = new SimpleDateFormat("yyyyMMddHHmmss" );
+    private final static NumberFormat numberFormat = new DecimalFormat("0000" );
+    private static int seq = 0;
+    private static final int MAX = 9999;
 
     private IDUtil() {
-    };
+    }
+
+    ;
 
     /**
+     * @return
      * @Desc: 按照时间格式生成序列ID
      * @Author: zhaoyy 2016年11月2日 下午6:03:01
-     * @return
      */
     public static synchronized String generateId() {
         Calendar rightNow = Calendar.getInstance();

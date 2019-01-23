@@ -2,10 +2,11 @@ apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 
 version '1.0.0'
-archivesBaseName='eureka'
+archivesBaseName = 'eureka'
 
 dependencies {
     //项目公共已引入，此处不再引用
-    // compile('org.springframework.cloud:spring-cloud-starter-eureka')
-    compile('org.springframework.cloud:spring-cloud-netflix-eureka-server')
+    implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+    implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
+
 }

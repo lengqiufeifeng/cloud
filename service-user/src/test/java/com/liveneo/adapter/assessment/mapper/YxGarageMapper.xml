@@ -1,294 +1,294 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liveneo.adapter.assessment.dao.YxGarageMapper">
-  <resultMap id="BaseResultMap" type="com.liveneo.adapter.assessment.model.YxGarage">
-    <id column="rf_id" jdbcType="VARCHAR" property="rfId" />
-    <result column="rf_name" jdbcType="VARCHAR" property="rfName" />
-    <result column="rf_short_name" jdbcType="VARCHAR" property="rfShortName" />
-    <result column="rf_type" jdbcType="VARCHAR" property="rfType" />
-    <result column="rf_tanager" jdbcType="VARCHAR" property="rfTanager" />
-    <result column="rf_man_phone" jdbcType="VARCHAR" property="rfManPhone" />
-    <result column="rf_contact" jdbcType="VARCHAR" property="rfContact" />
-    <result column="rf_con_phone" jdbcType="VARCHAR" property="rfConPhone" />
-    <result column="rf_addr" jdbcType="VARCHAR" property="rfAddr" />
-    <result column="rf_license" jdbcType="VARCHAR" property="rfLicense" />
-    <result column="rf_province" jdbcType="VARCHAR" property="rfProvince" />
-    <result column="rf_dity" jdbcType="VARCHAR" property="rfDity" />
-    <result column="rf_dis" jdbcType="VARCHAR" property="rfDis" />
-    <result column="rf_lat" jdbcType="VARCHAR" property="rfLat" />
-    <result column="rf_lon" jdbcType="VARCHAR" property="rfLon" />
-    <result column="rf_brand_name" jdbcType="VARCHAR" property="rfBrandName" />
-    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
-    <result column="exist_et" jdbcType="VARCHAR" property="existEt" />
-    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    rf_id, rf_name, rf_short_name, rf_type, rf_tanager, rf_man_phone, rf_contact, rf_con_phone, 
-    rf_addr, rf_license, rf_province, rf_dity, rf_dis, rf_lat, rf_lon, rf_brand_name, 
-    del_flag, exist_et, create_by, create_time, update_by, update_time
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from yx_garage
-    where rf_id = #{rfId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from yx_garage
-    where rf_id = #{rfId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.liveneo.adapter.assessment.model.YxGarage">
-    insert into yx_garage (rf_id, rf_name, rf_short_name, 
-      rf_type, rf_tanager, rf_man_phone, 
-      rf_contact, rf_con_phone, rf_addr, 
-      rf_license, rf_province, rf_dity, 
-      rf_dis, rf_lat, rf_lon, 
-      rf_brand_name, del_flag, exist_et, 
-      create_by, create_time, update_by, 
-      update_time)
-    values (#{rfId,jdbcType=VARCHAR}, #{rfName,jdbcType=VARCHAR}, #{rfShortName,jdbcType=VARCHAR}, 
-      #{rfType,jdbcType=VARCHAR}, #{rfTanager,jdbcType=VARCHAR}, #{rfManPhone,jdbcType=VARCHAR}, 
-      #{rfContact,jdbcType=VARCHAR}, #{rfConPhone,jdbcType=VARCHAR}, #{rfAddr,jdbcType=VARCHAR}, 
-      #{rfLicense,jdbcType=VARCHAR}, #{rfProvince,jdbcType=VARCHAR}, #{rfDity,jdbcType=VARCHAR}, 
-      #{rfDis,jdbcType=VARCHAR}, #{rfLat,jdbcType=VARCHAR}, #{rfLon,jdbcType=VARCHAR}, 
-      #{rfBrandName,jdbcType=VARCHAR}, #{delFlag,jdbcType=VARCHAR}, #{existEt,jdbcType=VARCHAR}, 
-      #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
-      #{updateTime,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="com.liveneo.adapter.assessment.model.YxGarage">
-    insert into yx_garage
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="rfId != null">
-        rf_id,
-      </if>
-      <if test="rfName != null">
-        rf_name,
-      </if>
-      <if test="rfShortName != null">
-        rf_short_name,
-      </if>
-      <if test="rfType != null">
-        rf_type,
-      </if>
-      <if test="rfTanager != null">
-        rf_tanager,
-      </if>
-      <if test="rfManPhone != null">
-        rf_man_phone,
-      </if>
-      <if test="rfContact != null">
-        rf_contact,
-      </if>
-      <if test="rfConPhone != null">
-        rf_con_phone,
-      </if>
-      <if test="rfAddr != null">
-        rf_addr,
-      </if>
-      <if test="rfLicense != null">
-        rf_license,
-      </if>
-      <if test="rfProvince != null">
-        rf_province,
-      </if>
-      <if test="rfDity != null">
-        rf_dity,
-      </if>
-      <if test="rfDis != null">
-        rf_dis,
-      </if>
-      <if test="rfLat != null">
-        rf_lat,
-      </if>
-      <if test="rfLon != null">
-        rf_lon,
-      </if>
-      <if test="rfBrandName != null">
-        rf_brand_name,
-      </if>
-      <if test="delFlag != null">
-        del_flag,
-      </if>
-      <if test="existEt != null">
-        exist_et,
-      </if>
-      <if test="createBy != null">
-        create_by,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="updateBy != null">
-        update_by,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="rfId != null">
-        #{rfId,jdbcType=VARCHAR},
-      </if>
-      <if test="rfName != null">
-        #{rfName,jdbcType=VARCHAR},
-      </if>
-      <if test="rfShortName != null">
-        #{rfShortName,jdbcType=VARCHAR},
-      </if>
-      <if test="rfType != null">
-        #{rfType,jdbcType=VARCHAR},
-      </if>
-      <if test="rfTanager != null">
-        #{rfTanager,jdbcType=VARCHAR},
-      </if>
-      <if test="rfManPhone != null">
-        #{rfManPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="rfContact != null">
-        #{rfContact,jdbcType=VARCHAR},
-      </if>
-      <if test="rfConPhone != null">
-        #{rfConPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="rfAddr != null">
-        #{rfAddr,jdbcType=VARCHAR},
-      </if>
-      <if test="rfLicense != null">
-        #{rfLicense,jdbcType=VARCHAR},
-      </if>
-      <if test="rfProvince != null">
-        #{rfProvince,jdbcType=VARCHAR},
-      </if>
-      <if test="rfDity != null">
-        #{rfDity,jdbcType=VARCHAR},
-      </if>
-      <if test="rfDis != null">
-        #{rfDis,jdbcType=VARCHAR},
-      </if>
-      <if test="rfLat != null">
-        #{rfLat,jdbcType=VARCHAR},
-      </if>
-      <if test="rfLon != null">
-        #{rfLon,jdbcType=VARCHAR},
-      </if>
-      <if test="rfBrandName != null">
-        #{rfBrandName,jdbcType=VARCHAR},
-      </if>
-      <if test="delFlag != null">
-        #{delFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="existEt != null">
-        #{existEt,jdbcType=VARCHAR},
-      </if>
-      <if test="createBy != null">
-        #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateBy != null">
-        #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liveneo.adapter.assessment.model.YxGarage">
-    update yx_garage
-    <set>
-      <if test="rfName != null">
-        rf_name = #{rfName,jdbcType=VARCHAR},
-      </if>
-      <if test="rfShortName != null">
+    <resultMap id="BaseResultMap" type="com.liveneo.adapter.assessment.model.YxGarage">
+        <id column="rf_id" jdbcType="VARCHAR" property="rfId"/>
+        <result column="rf_name" jdbcType="VARCHAR" property="rfName"/>
+        <result column="rf_short_name" jdbcType="VARCHAR" property="rfShortName"/>
+        <result column="rf_type" jdbcType="VARCHAR" property="rfType"/>
+        <result column="rf_tanager" jdbcType="VARCHAR" property="rfTanager"/>
+        <result column="rf_man_phone" jdbcType="VARCHAR" property="rfManPhone"/>
+        <result column="rf_contact" jdbcType="VARCHAR" property="rfContact"/>
+        <result column="rf_con_phone" jdbcType="VARCHAR" property="rfConPhone"/>
+        <result column="rf_addr" jdbcType="VARCHAR" property="rfAddr"/>
+        <result column="rf_license" jdbcType="VARCHAR" property="rfLicense"/>
+        <result column="rf_province" jdbcType="VARCHAR" property="rfProvince"/>
+        <result column="rf_dity" jdbcType="VARCHAR" property="rfDity"/>
+        <result column="rf_dis" jdbcType="VARCHAR" property="rfDis"/>
+        <result column="rf_lat" jdbcType="VARCHAR" property="rfLat"/>
+        <result column="rf_lon" jdbcType="VARCHAR" property="rfLon"/>
+        <result column="rf_brand_name" jdbcType="VARCHAR" property="rfBrandName"/>
+        <result column="del_flag" jdbcType="VARCHAR" property="delFlag"/>
+        <result column="exist_et" jdbcType="VARCHAR" property="existEt"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        rf_id, rf_name, rf_short_name, rf_type, rf_tanager, rf_man_phone, rf_contact, rf_con_phone,
+        rf_addr, rf_license, rf_province, rf_dity, rf_dis, rf_lat, rf_lon, rf_brand_name,
+        del_flag, exist_et, create_by, create_time, update_by, update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from yx_garage
+        where rf_id = #{rfId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from yx_garage
+        where rf_id = #{rfId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.liveneo.adapter.assessment.model.YxGarage">
+        insert into yx_garage (rf_id, rf_name, rf_short_name,
+        rf_type, rf_tanager, rf_man_phone,
+        rf_contact, rf_con_phone, rf_addr,
+        rf_license, rf_province, rf_dity,
+        rf_dis, rf_lat, rf_lon,
+        rf_brand_name, del_flag, exist_et,
+        create_by, create_time, update_by,
+        update_time)
+        values (#{rfId,jdbcType=VARCHAR}, #{rfName,jdbcType=VARCHAR}, #{rfShortName,jdbcType=VARCHAR},
+        #{rfType,jdbcType=VARCHAR}, #{rfTanager,jdbcType=VARCHAR}, #{rfManPhone,jdbcType=VARCHAR},
+        #{rfContact,jdbcType=VARCHAR}, #{rfConPhone,jdbcType=VARCHAR}, #{rfAddr,jdbcType=VARCHAR},
+        #{rfLicense,jdbcType=VARCHAR}, #{rfProvince,jdbcType=VARCHAR}, #{rfDity,jdbcType=VARCHAR},
+        #{rfDis,jdbcType=VARCHAR}, #{rfLat,jdbcType=VARCHAR}, #{rfLon,jdbcType=VARCHAR},
+        #{rfBrandName,jdbcType=VARCHAR}, #{delFlag,jdbcType=VARCHAR}, #{existEt,jdbcType=VARCHAR},
+        #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR},
+        #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="com.liveneo.adapter.assessment.model.YxGarage">
+        insert into yx_garage
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="rfId != null">
+                rf_id,
+            </if>
+            <if test="rfName != null">
+                rf_name,
+            </if>
+            <if test="rfShortName != null">
+                rf_short_name,
+            </if>
+            <if test="rfType != null">
+                rf_type,
+            </if>
+            <if test="rfTanager != null">
+                rf_tanager,
+            </if>
+            <if test="rfManPhone != null">
+                rf_man_phone,
+            </if>
+            <if test="rfContact != null">
+                rf_contact,
+            </if>
+            <if test="rfConPhone != null">
+                rf_con_phone,
+            </if>
+            <if test="rfAddr != null">
+                rf_addr,
+            </if>
+            <if test="rfLicense != null">
+                rf_license,
+            </if>
+            <if test="rfProvince != null">
+                rf_province,
+            </if>
+            <if test="rfDity != null">
+                rf_dity,
+            </if>
+            <if test="rfDis != null">
+                rf_dis,
+            </if>
+            <if test="rfLat != null">
+                rf_lat,
+            </if>
+            <if test="rfLon != null">
+                rf_lon,
+            </if>
+            <if test="rfBrandName != null">
+                rf_brand_name,
+            </if>
+            <if test="delFlag != null">
+                del_flag,
+            </if>
+            <if test="existEt != null">
+                exist_et,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="rfId != null">
+                #{rfId,jdbcType=VARCHAR},
+            </if>
+            <if test="rfName != null">
+                #{rfName,jdbcType=VARCHAR},
+            </if>
+            <if test="rfShortName != null">
+                #{rfShortName,jdbcType=VARCHAR},
+            </if>
+            <if test="rfType != null">
+                #{rfType,jdbcType=VARCHAR},
+            </if>
+            <if test="rfTanager != null">
+                #{rfTanager,jdbcType=VARCHAR},
+            </if>
+            <if test="rfManPhone != null">
+                #{rfManPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="rfContact != null">
+                #{rfContact,jdbcType=VARCHAR},
+            </if>
+            <if test="rfConPhone != null">
+                #{rfConPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="rfAddr != null">
+                #{rfAddr,jdbcType=VARCHAR},
+            </if>
+            <if test="rfLicense != null">
+                #{rfLicense,jdbcType=VARCHAR},
+            </if>
+            <if test="rfProvince != null">
+                #{rfProvince,jdbcType=VARCHAR},
+            </if>
+            <if test="rfDity != null">
+                #{rfDity,jdbcType=VARCHAR},
+            </if>
+            <if test="rfDis != null">
+                #{rfDis,jdbcType=VARCHAR},
+            </if>
+            <if test="rfLat != null">
+                #{rfLat,jdbcType=VARCHAR},
+            </if>
+            <if test="rfLon != null">
+                #{rfLon,jdbcType=VARCHAR},
+            </if>
+            <if test="rfBrandName != null">
+                #{rfBrandName,jdbcType=VARCHAR},
+            </if>
+            <if test="delFlag != null">
+                #{delFlag,jdbcType=VARCHAR},
+            </if>
+            <if test="existEt != null">
+                #{existEt,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.liveneo.adapter.assessment.model.YxGarage">
+        update yx_garage
+        <set>
+            <if test="rfName != null">
+                rf_name = #{rfName,jdbcType=VARCHAR},
+            </if>
+            <if test="rfShortName != null">
+                rf_short_name = #{rfShortName,jdbcType=VARCHAR},
+            </if>
+            <if test="rfType != null">
+                rf_type = #{rfType,jdbcType=VARCHAR},
+            </if>
+            <if test="rfTanager != null">
+                rf_tanager = #{rfTanager,jdbcType=VARCHAR},
+            </if>
+            <if test="rfManPhone != null">
+                rf_man_phone = #{rfManPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="rfContact != null">
+                rf_contact = #{rfContact,jdbcType=VARCHAR},
+            </if>
+            <if test="rfConPhone != null">
+                rf_con_phone = #{rfConPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="rfAddr != null">
+                rf_addr = #{rfAddr,jdbcType=VARCHAR},
+            </if>
+            <if test="rfLicense != null">
+                rf_license = #{rfLicense,jdbcType=VARCHAR},
+            </if>
+            <if test="rfProvince != null">
+                rf_province = #{rfProvince,jdbcType=VARCHAR},
+            </if>
+            <if test="rfDity != null">
+                rf_dity = #{rfDity,jdbcType=VARCHAR},
+            </if>
+            <if test="rfDis != null">
+                rf_dis = #{rfDis,jdbcType=VARCHAR},
+            </if>
+            <if test="rfLat != null">
+                rf_lat = #{rfLat,jdbcType=VARCHAR},
+            </if>
+            <if test="rfLon != null">
+                rf_lon = #{rfLon,jdbcType=VARCHAR},
+            </if>
+            <if test="rfBrandName != null">
+                rf_brand_name = #{rfBrandName,jdbcType=VARCHAR},
+            </if>
+            <if test="delFlag != null">
+                del_flag = #{delFlag,jdbcType=VARCHAR},
+            </if>
+            <if test="existEt != null">
+                exist_et = #{existEt,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where rf_id = #{rfId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.liveneo.adapter.assessment.model.YxGarage">
+        update yx_garage
+        set rf_name = #{rfName,jdbcType=VARCHAR},
         rf_short_name = #{rfShortName,jdbcType=VARCHAR},
-      </if>
-      <if test="rfType != null">
         rf_type = #{rfType,jdbcType=VARCHAR},
-      </if>
-      <if test="rfTanager != null">
         rf_tanager = #{rfTanager,jdbcType=VARCHAR},
-      </if>
-      <if test="rfManPhone != null">
         rf_man_phone = #{rfManPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="rfContact != null">
         rf_contact = #{rfContact,jdbcType=VARCHAR},
-      </if>
-      <if test="rfConPhone != null">
         rf_con_phone = #{rfConPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="rfAddr != null">
         rf_addr = #{rfAddr,jdbcType=VARCHAR},
-      </if>
-      <if test="rfLicense != null">
         rf_license = #{rfLicense,jdbcType=VARCHAR},
-      </if>
-      <if test="rfProvince != null">
         rf_province = #{rfProvince,jdbcType=VARCHAR},
-      </if>
-      <if test="rfDity != null">
         rf_dity = #{rfDity,jdbcType=VARCHAR},
-      </if>
-      <if test="rfDis != null">
         rf_dis = #{rfDis,jdbcType=VARCHAR},
-      </if>
-      <if test="rfLat != null">
         rf_lat = #{rfLat,jdbcType=VARCHAR},
-      </if>
-      <if test="rfLon != null">
         rf_lon = #{rfLon,jdbcType=VARCHAR},
-      </if>
-      <if test="rfBrandName != null">
         rf_brand_name = #{rfBrandName,jdbcType=VARCHAR},
-      </if>
-      <if test="delFlag != null">
         del_flag = #{delFlag,jdbcType=VARCHAR},
-      </if>
-      <if test="existEt != null">
         exist_et = #{existEt,jdbcType=VARCHAR},
-      </if>
-      <if test="createBy != null">
         create_by = #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateBy != null">
         update_by = #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where rf_id = #{rfId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.liveneo.adapter.assessment.model.YxGarage">
-    update yx_garage
-    set rf_name = #{rfName,jdbcType=VARCHAR},
-      rf_short_name = #{rfShortName,jdbcType=VARCHAR},
-      rf_type = #{rfType,jdbcType=VARCHAR},
-      rf_tanager = #{rfTanager,jdbcType=VARCHAR},
-      rf_man_phone = #{rfManPhone,jdbcType=VARCHAR},
-      rf_contact = #{rfContact,jdbcType=VARCHAR},
-      rf_con_phone = #{rfConPhone,jdbcType=VARCHAR},
-      rf_addr = #{rfAddr,jdbcType=VARCHAR},
-      rf_license = #{rfLicense,jdbcType=VARCHAR},
-      rf_province = #{rfProvince,jdbcType=VARCHAR},
-      rf_dity = #{rfDity,jdbcType=VARCHAR},
-      rf_dis = #{rfDis,jdbcType=VARCHAR},
-      rf_lat = #{rfLat,jdbcType=VARCHAR},
-      rf_lon = #{rfLon,jdbcType=VARCHAR},
-      rf_brand_name = #{rfBrandName,jdbcType=VARCHAR},
-      del_flag = #{delFlag,jdbcType=VARCHAR},
-      exist_et = #{existEt,jdbcType=VARCHAR},
-      create_by = #{createBy,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_by = #{updateBy,jdbcType=VARCHAR},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where rf_id = #{rfId,jdbcType=VARCHAR}
-  </update>
+        update_time = #{updateTime,jdbcType=TIMESTAMP}
+        where rf_id = #{rfId,jdbcType=VARCHAR}
+    </update>
 </mapper>

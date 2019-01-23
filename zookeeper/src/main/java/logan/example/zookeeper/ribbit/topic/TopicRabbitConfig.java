@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 规则匹配
+ *
  * @author logan
  * @Title: ${file_name}
  * @Package ${package_name}
@@ -24,29 +25,29 @@ public class TopicRabbitConfig {
 
     @Bean
     public Queue queueMessage() {
-        return new Queue(TopicRabbitConfig.a,true);
+        return new Queue(TopicRabbitConfig.a, true);
     }
 
     @Bean
     public Queue queueMessages() {
-        return new Queue(TopicRabbitConfig.b,true);
+        return new Queue(TopicRabbitConfig.b, true);
     }
 
     @Bean
     TopicExchange exchange() {
-        return new TopicExchange("topicExchange",true
-        ,false);
+        return new TopicExchange("topicExchange", true
+                , false);
     }
 
     @Bean
     Binding bindingExchangeMessage(Queue queueMessage, TopicExchange exchange) {
-        return BindingBuilder.bind(queueMessage).to(exchange).with("topic.*");
+        return BindingBuilder.bind(queueMessage).to(exchange).with("topic.*" );
     }
 //*(星号)代表任意一个单词
 //#(hash)0个或多个单词
 
     @Bean
     Binding bindingExchangeMessages(Queue queueMessages, TopicExchange exchange) {
-        return BindingBuilder.bind(queueMessages).to(exchange).with("topic.#");
+        return BindingBuilder.bind(queueMessages).to(exchange).with("topic.#" );
     }
 }

@@ -3,12 +3,13 @@ group 'logan.exemple'
 apply plugin: 'org.springframework.boot'
 
 version = '1.0.0-SNAPSHOT'
-archivesBaseName='monitoring'
+archivesBaseName = 'monitoring'
 
 dependencies {
     compile project(":z-common")
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-data-mongodb')
-  
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+
 
 }

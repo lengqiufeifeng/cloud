@@ -28,13 +28,13 @@ public class JobExeListener extends JobExecutionListenerSupport {
 
     @Override
     public void afterJob(JobExecution jobExecution) {
-        logger.info(jobExecution.getJobInstance().getJobName()+"{}", "--------------afterJob");
+        logger.info(jobExecution.getJobInstance().getJobName() + "{}", "--------------afterJob" );
         super.afterJob(jobExecution);
     }
 
     @Override
     public void beforeJob(JobExecution jobExecution) {
-        logger.info(jobExecution.getJobInstance().getJobName()+"{}", "--------------beforeJob");
+        logger.info(jobExecution.getJobInstance().getJobName() + "{}", "--------------beforeJob" );
         super.beforeJob(jobExecution);
     }
 }

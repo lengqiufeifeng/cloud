@@ -52,7 +52,7 @@ public class TestSysLogMongoDB {
         SysLog sysLogf = new SysLog();
         sysLogf.sysCode = "logan/exemple/test";
         String[] s = new String[]{"yyyy-MM-dd hh:mm:ss"};
-        sysLogf.serviceCode="logan/exemple/test";
+        sysLogf.serviceCode = "logan/exemple/test";
 
         Page<SysLog> oag = sysLogMongoService.findSysLogs(sysLogf, 2, 1);
         System.err.println("---get:" + JsonHandlerGson.ToJsonStr(oag.getContent()));
@@ -61,7 +61,7 @@ public class TestSysLogMongoDB {
         SysLog sysLogOne = sysLogMongoService.findOne(sysLogf);
         System.err.println("---get:" + JsonHandlerGson.ToJsonStr(sysLogOne));
 
-        List<SysLog> result1 = sysLogMongoService.findBySysCode(sysLogf.sysCode,sysLogf.serviceCode, sysLogf.createTime);
+        List<SysLog> result1 = sysLogMongoService.findBySysCode(sysLogf.sysCode, sysLogf.serviceCode, sysLogf.createTime);
 
         System.err.println("---get:" + JsonHandlerGson.ToJsonStr(result1));
 

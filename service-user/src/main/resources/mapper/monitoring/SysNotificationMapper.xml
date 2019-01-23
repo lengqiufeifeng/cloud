@@ -1,177 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="logan.exemple.service.monitoring.dao.SysNotificationMapper">
-  <resultMap id="BaseResultMap" type="logan.exemple.service.monitoring.model.SysNotification">
-    <id column="nt_id" jdbcType="INTEGER" property="ntId" />
-    <result column="sys_name" jdbcType="VARCHAR" property="sysName" />
-    <result column="sys_code" jdbcType="VARCHAR" property="sysCode" />
-    <result column="service_name" jdbcType="VARCHAR" property="serviceName" />
-    <result column="service_code" jdbcType="VARCHAR" property="serviceCode" />
-    <result column="nct_name" jdbcType="VARCHAR" property="nctName" />
-    <result column="nct_type" jdbcType="TINYINT" property="nctType" />
-    <result column="nct_uri" jdbcType="VARCHAR" property="nctUri" />
-    <result column="nct_parameters" jdbcType="VARCHAR" property="nctParameters" />
-    <result column="nct_status" jdbcType="TINYINT" property="nctStatus" />
-    <result column="updata_time" jdbcType="TIMESTAMP" property="updataTime" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    nt_id, sys_name, sys_code, service_name, service_code, nct_name, nct_type, nct_uri, 
-    nct_parameters, nct_status, updata_time, create_time
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from sys_notification
-    where nt_id = #{ntId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from sys_notification
-    where nt_id = #{ntId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="logan.exemple.service.monitoring.model.SysNotification">
-    insert into sys_notification (nt_id, sys_name, sys_code, 
-      service_name, service_code, nct_name, 
-      nct_type, nct_uri, nct_parameters, 
-      nct_status, updata_time, create_time
-      )
-    values (#{ntId,jdbcType=INTEGER}, #{sysName,jdbcType=VARCHAR}, #{sysCode,jdbcType=VARCHAR}, 
-      #{serviceName,jdbcType=VARCHAR}, #{serviceCode,jdbcType=VARCHAR}, #{nctName,jdbcType=VARCHAR}, 
-      #{nctType,jdbcType=TINYINT}, #{nctUri,jdbcType=VARCHAR}, #{nctParameters,jdbcType=VARCHAR}, 
-      #{nctStatus,jdbcType=TINYINT}, #{updataTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="logan.exemple.service.monitoring.model.SysNotification">
-    insert into sys_notification
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ntId != null">
-        nt_id,
-      </if>
-      <if test="sysName != null">
-        sys_name,
-      </if>
-      <if test="sysCode != null">
-        sys_code,
-      </if>
-      <if test="serviceName != null">
-        service_name,
-      </if>
-      <if test="serviceCode != null">
-        service_code,
-      </if>
-      <if test="nctName != null">
-        nct_name,
-      </if>
-      <if test="nctType != null">
-        nct_type,
-      </if>
-      <if test="nctUri != null">
-        nct_uri,
-      </if>
-      <if test="nctParameters != null">
-        nct_parameters,
-      </if>
-      <if test="nctStatus != null">
-        nct_status,
-      </if>
-      <if test="updataTime != null">
-        updata_time,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ntId != null">
-        #{ntId,jdbcType=INTEGER},
-      </if>
-      <if test="sysName != null">
-        #{sysName,jdbcType=VARCHAR},
-      </if>
-      <if test="sysCode != null">
-        #{sysCode,jdbcType=VARCHAR},
-      </if>
-      <if test="serviceName != null">
-        #{serviceName,jdbcType=VARCHAR},
-      </if>
-      <if test="serviceCode != null">
-        #{serviceCode,jdbcType=VARCHAR},
-      </if>
-      <if test="nctName != null">
-        #{nctName,jdbcType=VARCHAR},
-      </if>
-      <if test="nctType != null">
-        #{nctType,jdbcType=TINYINT},
-      </if>
-      <if test="nctUri != null">
-        #{nctUri,jdbcType=VARCHAR},
-      </if>
-      <if test="nctParameters != null">
-        #{nctParameters,jdbcType=VARCHAR},
-      </if>
-      <if test="nctStatus != null">
-        #{nctStatus,jdbcType=TINYINT},
-      </if>
-      <if test="updataTime != null">
-        #{updataTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="logan.exemple.service.monitoring.model.SysNotification">
-    update sys_notification
-    <set>
-      <if test="sysName != null">
-        sys_name = #{sysName,jdbcType=VARCHAR},
-      </if>
-      <if test="sysCode != null">
+    <resultMap id="BaseResultMap" type="logan.exemple.service.monitoring.model.SysNotification">
+        <id column="nt_id" jdbcType="INTEGER" property="ntId"/>
+        <result column="sys_name" jdbcType="VARCHAR" property="sysName"/>
+        <result column="sys_code" jdbcType="VARCHAR" property="sysCode"/>
+        <result column="service_name" jdbcType="VARCHAR" property="serviceName"/>
+        <result column="service_code" jdbcType="VARCHAR" property="serviceCode"/>
+        <result column="nct_name" jdbcType="VARCHAR" property="nctName"/>
+        <result column="nct_type" jdbcType="TINYINT" property="nctType"/>
+        <result column="nct_uri" jdbcType="VARCHAR" property="nctUri"/>
+        <result column="nct_parameters" jdbcType="VARCHAR" property="nctParameters"/>
+        <result column="nct_status" jdbcType="TINYINT" property="nctStatus"/>
+        <result column="updata_time" jdbcType="TIMESTAMP" property="updataTime"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        nt_id, sys_name, sys_code, service_name, service_code, nct_name, nct_type, nct_uri,
+        nct_parameters, nct_status, updata_time, create_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_notification
+        where nt_id = #{ntId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from sys_notification
+        where nt_id = #{ntId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="logan.exemple.service.monitoring.model.SysNotification">
+        insert into sys_notification (nt_id, sys_name, sys_code,
+        service_name, service_code, nct_name,
+        nct_type, nct_uri, nct_parameters,
+        nct_status, updata_time, create_time
+        )
+        values (#{ntId,jdbcType=INTEGER}, #{sysName,jdbcType=VARCHAR}, #{sysCode,jdbcType=VARCHAR},
+        #{serviceName,jdbcType=VARCHAR}, #{serviceCode,jdbcType=VARCHAR}, #{nctName,jdbcType=VARCHAR},
+        #{nctType,jdbcType=TINYINT}, #{nctUri,jdbcType=VARCHAR}, #{nctParameters,jdbcType=VARCHAR},
+        #{nctStatus,jdbcType=TINYINT}, #{updataTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="logan.exemple.service.monitoring.model.SysNotification">
+        insert into sys_notification
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="ntId != null">
+                nt_id,
+            </if>
+            <if test="sysName != null">
+                sys_name,
+            </if>
+            <if test="sysCode != null">
+                sys_code,
+            </if>
+            <if test="serviceName != null">
+                service_name,
+            </if>
+            <if test="serviceCode != null">
+                service_code,
+            </if>
+            <if test="nctName != null">
+                nct_name,
+            </if>
+            <if test="nctType != null">
+                nct_type,
+            </if>
+            <if test="nctUri != null">
+                nct_uri,
+            </if>
+            <if test="nctParameters != null">
+                nct_parameters,
+            </if>
+            <if test="nctStatus != null">
+                nct_status,
+            </if>
+            <if test="updataTime != null">
+                updata_time,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="ntId != null">
+                #{ntId,jdbcType=INTEGER},
+            </if>
+            <if test="sysName != null">
+                #{sysName,jdbcType=VARCHAR},
+            </if>
+            <if test="sysCode != null">
+                #{sysCode,jdbcType=VARCHAR},
+            </if>
+            <if test="serviceName != null">
+                #{serviceName,jdbcType=VARCHAR},
+            </if>
+            <if test="serviceCode != null">
+                #{serviceCode,jdbcType=VARCHAR},
+            </if>
+            <if test="nctName != null">
+                #{nctName,jdbcType=VARCHAR},
+            </if>
+            <if test="nctType != null">
+                #{nctType,jdbcType=TINYINT},
+            </if>
+            <if test="nctUri != null">
+                #{nctUri,jdbcType=VARCHAR},
+            </if>
+            <if test="nctParameters != null">
+                #{nctParameters,jdbcType=VARCHAR},
+            </if>
+            <if test="nctStatus != null">
+                #{nctStatus,jdbcType=TINYINT},
+            </if>
+            <if test="updataTime != null">
+                #{updataTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="logan.exemple.service.monitoring.model.SysNotification">
+        update sys_notification
+        <set>
+            <if test="sysName != null">
+                sys_name = #{sysName,jdbcType=VARCHAR},
+            </if>
+            <if test="sysCode != null">
+                sys_code = #{sysCode,jdbcType=VARCHAR},
+            </if>
+            <if test="serviceName != null">
+                service_name = #{serviceName,jdbcType=VARCHAR},
+            </if>
+            <if test="serviceCode != null">
+                service_code = #{serviceCode,jdbcType=VARCHAR},
+            </if>
+            <if test="nctName != null">
+                nct_name = #{nctName,jdbcType=VARCHAR},
+            </if>
+            <if test="nctType != null">
+                nct_type = #{nctType,jdbcType=TINYINT},
+            </if>
+            <if test="nctUri != null">
+                nct_uri = #{nctUri,jdbcType=VARCHAR},
+            </if>
+            <if test="nctParameters != null">
+                nct_parameters = #{nctParameters,jdbcType=VARCHAR},
+            </if>
+            <if test="nctStatus != null">
+                nct_status = #{nctStatus,jdbcType=TINYINT},
+            </if>
+            <if test="updataTime != null">
+                updata_time = #{updataTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where nt_id = #{ntId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="logan.exemple.service.monitoring.model.SysNotification">
+        update sys_notification
+        set sys_name = #{sysName,jdbcType=VARCHAR},
         sys_code = #{sysCode,jdbcType=VARCHAR},
-      </if>
-      <if test="serviceName != null">
         service_name = #{serviceName,jdbcType=VARCHAR},
-      </if>
-      <if test="serviceCode != null">
         service_code = #{serviceCode,jdbcType=VARCHAR},
-      </if>
-      <if test="nctName != null">
         nct_name = #{nctName,jdbcType=VARCHAR},
-      </if>
-      <if test="nctType != null">
         nct_type = #{nctType,jdbcType=TINYINT},
-      </if>
-      <if test="nctUri != null">
         nct_uri = #{nctUri,jdbcType=VARCHAR},
-      </if>
-      <if test="nctParameters != null">
         nct_parameters = #{nctParameters,jdbcType=VARCHAR},
-      </if>
-      <if test="nctStatus != null">
         nct_status = #{nctStatus,jdbcType=TINYINT},
-      </if>
-      <if test="updataTime != null">
         updata_time = #{updataTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where nt_id = #{ntId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="logan.exemple.service.monitoring.model.SysNotification">
-    update sys_notification
-    set sys_name = #{sysName,jdbcType=VARCHAR},
-      sys_code = #{sysCode,jdbcType=VARCHAR},
-      service_name = #{serviceName,jdbcType=VARCHAR},
-      service_code = #{serviceCode,jdbcType=VARCHAR},
-      nct_name = #{nctName,jdbcType=VARCHAR},
-      nct_type = #{nctType,jdbcType=TINYINT},
-      nct_uri = #{nctUri,jdbcType=VARCHAR},
-      nct_parameters = #{nctParameters,jdbcType=VARCHAR},
-      nct_status = #{nctStatus,jdbcType=TINYINT},
-      updata_time = #{updataTime,jdbcType=TIMESTAMP},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
-    where nt_id = #{ntId,jdbcType=INTEGER}
-  </update>
+        create_time = #{createTime,jdbcType=TIMESTAMP}
+        where nt_id = #{ntId,jdbcType=INTEGER}
+    </update>
 </mapper>

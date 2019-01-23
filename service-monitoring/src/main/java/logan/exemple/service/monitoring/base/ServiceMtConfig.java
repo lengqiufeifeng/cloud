@@ -20,6 +20,8 @@ import java.util.List;
 
 /**
  * Created by qiufeng on 2017/9/21.
+ *
+ * @author qiufeng
  */
 @Configuration
 public class ServiceMtConfig {
@@ -27,22 +29,22 @@ public class ServiceMtConfig {
 
     @PostConstruct
     public void initConfig() {
-        logger.info("--------系统加载自定义资源--------------------------");
-        logger.info("----------完成自定义资源加载-----------------------------");
+        logger.info("--------系统加载自定义资源--------------------------" );
+        logger.info("----------完成自定义资源加载-----------------------------" );
     }
-//    @Bean
-//    public ServletRegistrationBean dispatcherRegistration(DispatcherServlet dispatcherServlet) {
-//        dispatcherServlet.setThrowExceptionIfNoHandlerFound(true);
-//        ServletRegistrationBean reg = new ServletRegistrationBean(dispatcherServlet);
-//        return reg;
-//    }
+/*    @Bean
+    public ServletRegistrationBean dispatcherRegistration(DispatcherServlet dispatcherServlet) {
+        dispatcherServlet.setThrowExceptionIfNoHandlerFound(true);
+        ServletRegistrationBean reg = new ServletRegistrationBean(dispatcherServlet);
+        return reg;
+    }*/
 
-    @Bean
+/*    @Bean
     public ServletListenerRegistrationBean servletListenerRegistrationBean() {
         ServletListenerRegistrationBean servletListenerRegistrationBean = new ServletListenerRegistrationBean();
         servletListenerRegistrationBean.setListener(new MonContextLoader());
         return servletListenerRegistrationBean;
-    }
+    }*/
 
     @Bean
     public MappingJackson2HttpMessageConverter mappingJacksonHttpMessageConverter() {
@@ -54,7 +56,7 @@ public class ServiceMtConfig {
         mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS,
                 false);
-        mapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+        mapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss" ));
         mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
         mapper.setSerializerFactory(mapper.getSerializerFactory().withSerializerModifier(new BeanSerializerModifier() {
             @Override
@@ -75,7 +77,7 @@ public class ServiceMtConfig {
      */
     @PreDestroy
     public void destroy() {
-        logger.info("--------系统关闭前清理自定义资源--------------------------");
-        logger.info("----------完成自定义资源清除-----------------------------");
+        logger.info("--------系统关闭前清理自定义资源--------------------------" );
+        logger.info("----------完成自定义资源清除-----------------------------" );
     }
 }

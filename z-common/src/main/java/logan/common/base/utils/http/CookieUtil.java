@@ -6,9 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Cookie 工具类
- * 
+ *
  * @author zhangpanfeng
- * 
  */
 public class CookieUtil {
     public static final String DEFAULT_DOMAIN = ".activelife.com";
@@ -16,10 +15,9 @@ public class CookieUtil {
 
     /**
      * 根据Cookie名称获取Cookie
-     * 
+     *
      * @param request
-     * @param name
-     *            Cookie名称
+     * @param name    Cookie名称
      * @return Cookie对象
      */
     public static Cookie getCookie(HttpServletRequest request, String name) {
@@ -38,10 +36,9 @@ public class CookieUtil {
 
     /**
      * 根据Cookie名称获取Cookie的值
-     * 
+     *
      * @param request
-     * @param name
-     *            Cookie名称
+     * @param name    Cookie名称
      * @return Cookie值
      */
     public static String getCookieValue(HttpServletRequest request, String name) {
@@ -52,21 +49,16 @@ public class CookieUtil {
 
     /**
      * 添加Cookie
-     * 
+     *
      * @param response
-     * @param key
-     *            Cookie键
-     * @param value
-     *            Cookie值
-     * @param validDays
-     *            Cookie有效天数，null表示永不失效
-     * @param domain
-     *            Cookie domain， null表示使用默认domain ".activelife.com"
-     * @param path
-     *            Cookie 路径， null表示使用默认路径 "/"
+     * @param key       Cookie键
+     * @param value     Cookie值
+     * @param validDays Cookie有效天数，null表示永不失效
+     * @param domain    Cookie domain， null表示使用默认domain ".activelife.com"
+     * @param path      Cookie 路径， null表示使用默认路径 "/"
      */
     public static void addCookie(HttpServletResponse response, String key, String value, Integer validDays,
-            String domain, String path) {
+                                 String domain, String path) {
         Cookie cookie = new Cookie(key, value);
         if (validDays != null && validDays >= 0) {
             cookie.setMaxAge(validDays * 3600 * 24);
@@ -87,15 +79,13 @@ public class CookieUtil {
 
     /**
      * 删除Cookie
-     * 
+     *
      * @param response
-     * @param key
-     *            Cookie键
-     * @param path
-     *            Cookie路径， null表示使用默认路径 "/"
+     * @param key      Cookie键
+     * @param path     Cookie路径， null表示使用默认路径 "/"
      */
     public static void deleteCookie(HttpServletResponse response, String key, String path) {
-        Cookie cookie = new Cookie(key, "");
+        Cookie cookie = new Cookie(key, "" );
         cookie.setMaxAge(0);
         if (path != null) {
             cookie.setPath(path);

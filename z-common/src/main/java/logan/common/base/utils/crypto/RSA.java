@@ -18,15 +18,16 @@ public class RSA {
 
     /**
      * RSA签名
-     * @param content 待签名数据
-     * @param privateKey 商户私钥
+     *
+     * @param content       待签名数据
+     * @param privateKey    商户私钥
      * @param input_charset 编码格式
      * @return 签名值
      */
     public static String sign(String content, String privateKey, String input_charset) {
         try {
             PKCS8EncodedKeySpec priPKCS8 = new PKCS8EncodedKeySpec(Base64.decodeBase64(privateKey));
-            KeyFactory keyf = KeyFactory.getInstance("RSA");
+            KeyFactory keyf = KeyFactory.getInstance("RSA" );
             PrivateKey priKey = keyf.generatePrivate(priPKCS8);
             java.security.Signature signature = java.security.Signature.getInstance(SIGN_ALGORITHMS);
             signature.initSign(priKey);
@@ -41,15 +42,16 @@ public class RSA {
 
     /**
      * RSA验签名检查
-     * @param content 待签名数据
-     * @param sign 签名值
+     *
+     * @param content        待签名数据
+     * @param sign           签名值
      * @param ali_public_key 支付宝公钥
-     * @param input_charset 编码格式
+     * @param input_charset  编码格式
      * @return 布尔值
      */
     public static boolean verify(String content, String sign, String ali_public_key, String input_charset) {
         try {
-            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA" );
             byte[] encodedKey = Base64.decodeBase64(ali_public_key);
             PublicKey pubKey = keyFactory.generatePublic(new X509EncodedKeySpec(encodedKey));
             java.security.Signature signature = java.security.Signature.getInstance(SIGN_ALGORITHMS);
@@ -65,14 +67,15 @@ public class RSA {
 
     /**
      * 解密
-     * @param content 密文
-     * @param private_key 商户私钥
+     *
+     * @param content       密文
+     * @param private_key   商户私钥
      * @param input_charset 编码格式
      * @return 解密后的字符串
      */
     public static String decrypt(String content, String private_key, String input_charset) throws Exception {
         PrivateKey prikey = getPrivateKey(private_key);
-        Cipher cipher = Cipher.getInstance("RSA");
+        Cipher cipher = Cipher.getInstance("RSA" );
         cipher.init(Cipher.DECRYPT_MODE, prikey);
         InputStream ins = new ByteArrayInputStream(Base64.decodeBase64(content));
         ByteArrayOutputStream writer = new ByteArrayOutputStream();
@@ -96,6 +99,7 @@ public class RSA {
 
     /**
      * 得到私钥
+     *
      * @param key 密钥字符串（经过base64编码）
      * @throws Exception
      */
@@ -103,7 +107,7 @@ public class RSA {
         byte[] keyBytes;
         keyBytes = Base64.decodeBase64(key);
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
-        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+        KeyFactory keyFactory = KeyFactory.getInstance("RSA" );
         PrivateKey privateKey = keyFactory.generatePrivate(keySpec);
         return privateKey;
     }

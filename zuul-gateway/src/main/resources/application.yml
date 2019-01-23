@@ -1,7 +1,7 @@
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: http://localhost:8010/eureka/
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka/
 spring:
   application:
     name: gateway
@@ -16,12 +16,15 @@ server:
   port: 8080
 zuul:
   routes:
-#    service-user:
-#      sensitive-headers: Cookie,Set-Cookie
-#      ignored-headers: Authorization
-#      path: /user/**
-#      serviceId: service-user
-#    service-monitoring: /monitoring/**
-    file-api:
+    #    service-user:
+    #      sensitive-headers: Cookie,Set-Cookie
+    #      ignored-headers: Authorization
+    #      path: /user/**
+    #      serviceId: service-user
+    #    service-monitoring: /monitoring/**
+    baidu:
       path: /uploadFile/**
-      url: http://127.0.0.1:8081
+      url: https://www.baidu.com
+    bing:
+      path: /**
+      url: https://www.bing.com

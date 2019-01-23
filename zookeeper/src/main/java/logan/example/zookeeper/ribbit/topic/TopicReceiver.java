@@ -22,24 +22,25 @@ import java.util.HashMap;
 @Component
 public class TopicReceiver {
     //    @RabbitListener(queues = "topic.message",containerFactory = "")
-    @RabbitListener(queues = "topic.A")
+    @RabbitListener(queues = "topic.A" )
     @RabbitHandler
     public void process(Message message, Channel channel) throws Exception {
         System.err.println("Receiver topic.A:" + message);
-        channel.basicAck(message.getMessageProperties().getDeliveryTag(),false);
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
     }
 
-    @RabbitListener(queues = "topic.B")
+    @RabbitListener(queues = "topic.B" )
     @RabbitHandler
     public void process1(String hello) {
         System.err.println("Receiver topic.B:" + hello);
     }
-    @RabbitListener(queues = {"topic.A","topic.B"})
+
+    @RabbitListener(queues = {"topic.A", "topic.B"})
     @RabbitHandler
-    public void process2(Message message, Channel channel) throws Exception{
+    public void process2(Message message, Channel channel) throws Exception {
 //       String srt= (String)((HashMap)SerializationUtils.deserialize(message.getBody())).get("k");
         System.err.println("Receiver topic.A-B:" + message);
 
-        channel.basicAck(message.getMessageProperties().getDeliveryTag(),true);
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), true);
     }
 }

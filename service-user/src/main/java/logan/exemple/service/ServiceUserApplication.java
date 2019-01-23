@@ -14,17 +14,19 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 @RestController
 public class ServiceUserApplication extends SpringBootServletInitializer {
-    @GetMapping("/logan/exemple/service")
+    @GetMapping("/logan/exemple/service" )
     public String service() {
         return "this service is user management";
     }
+
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(ServiceUserApplication.class);
     }
+
     public static void main(String[] args) {
         SpringApplication.run(ServiceUserApplication.class, args);
     }

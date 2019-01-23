@@ -3,9 +3,7 @@ package logan.common.base.boot;
 import org.apache.commons.lang3.SystemUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.context.ContextLoaderListener;
 
-import javax.servlet.ServletContextEvent;
 import java.nio.charset.Charset;
 import java.text.DecimalFormat;
 import java.util.LinkedHashMap;
@@ -21,7 +19,7 @@ import java.util.TimeZone;
  * @version: 1.0
  * @date: 2016年11月2日 下午1:32:23
  */
-public abstract class AbstractContextLoaderListener extends ContextLoaderListener {
+public abstract class AbstractContextLoaderListener {
     protected final Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
@@ -34,49 +32,17 @@ public abstract class AbstractContextLoaderListener extends ContextLoaderListene
     /**
      * 是否初始化
      * super.contextInitialized(event);
+     *
      * @return
      */
     public abstract boolean isContextInitialized();
 
-    @Override
-    public void contextInitialized(ServletContextEvent event) {
-        printStart();
-        try {
-            boolean f = isContextInitialized();
-            if (f)
-                super.contextInitialized(event);
-            printStarted();
-//            onStartupSuccess();
-        } catch (Exception e) {
-//            onStartupFailed(e.getMessage());
-            printError(e);
-        }
-    }
-
-    /**
-     * 启动成功通知
-     */
-//    public abstract void onStartupSuccess();
-
-    /**
-     * 启动失败通知
-     *
-     * @param
-     */
-//    public abstract void onStartupFailed(String errorMessage);
-    @Override
-    public void contextDestroyed(ServletContextEvent event) {
-        printStop();
-        if (isContextInitialized())
-            super.contextDestroyed(event);
-        printStopped();
-    }
 
     protected void printStart() {
-        logger.info("------------------------------------------------");
+        logger.info("------------------------------------------------" );
         logger.info("启动 {} ..", getCallName());
-        logger.info("------------------------------------------------");
-        @SuppressWarnings("serial")
+        logger.info("------------------------------------------------" );
+        @SuppressWarnings("serial" )
         Map<String, Object> map = new LinkedHashMap<String, Object>() {
             @Override
             public String toString() {
@@ -111,7 +77,7 @@ public abstract class AbstractContextLoaderListener extends ContextLoaderListene
 
     private static void getCPUInfo(Map<String, Object> map) {
         map.put("Avaible CPU(s)", Runtime.getRuntime().availableProcessors());
-        map.put("Processor(s) Identifier", System.getenv("PROCESSOR_IDENTIFIER"));
+        map.put("Processor(s) Identifier", System.getenv("PROCESSOR_IDENTIFIER" ));
 
     }
 
@@ -123,8 +89,8 @@ public abstract class AbstractContextLoaderListener extends ContextLoaderListene
         double used = allocated - cached; // really used memory
         double useable = max - used; // allocated, but non-used and
         // non-allocated memory
-        DecimalFormat df1 = new DecimalFormat(" (0.00'%')");
-        DecimalFormat df2 = new DecimalFormat("# 'MB'");
+        DecimalFormat df1 = new DecimalFormat(" (0.00'%')" );
+        DecimalFormat df2 = new DecimalFormat("# 'MB'" );
         map.put("Allowed Memory", df2.format(max));
         map.put("Allocated Memory", df2.format(allocated) + df1.format(allocated / max * 100));
         map.put("Non-Allocated Memory", df2.format(nonAllocated) + df1.format(nonAllocated / max * 100));
@@ -146,26 +112,26 @@ public abstract class AbstractContextLoaderListener extends ContextLoaderListene
 
     protected void printStarted() throws Exception {
         // throw new Exception("启动失败、、、、");
-        logger.info("------------------------------------------------");
+        logger.info("------------------------------------------------" );
         logger.info("启动 {} 成功!", getCallName());
-        logger.info("------------------------------------------------");
+        logger.info("------------------------------------------------" );
     }
 
     protected void printStop() {
-        logger.info("------------------------------------------------");
+        logger.info("------------------------------------------------" );
         logger.info("正在停止 {} ..", getCallName());
-        logger.info("------------------------------------------------");
+        logger.info("------------------------------------------------" );
     }
 
     protected void printStopped() {
-        logger.info("------------------------------------------------");
+        logger.info("------------------------------------------------" );
         logger.info("已经停止 {} ! 感谢您使用!", getCallName());
-        logger.info("------------------------------------------------");
+        logger.info("------------------------------------------------" );
     }
 
     protected void printError(Exception e) {
-        logger.error("------------------------------------------------");
+        logger.error("------------------------------------------------" );
         logger.error("启动 {} 出错! 错误信息如下:", getCallName(), e);
-        logger.error("------------------------------------------------");
+        logger.error("------------------------------------------------" );
     }
 }

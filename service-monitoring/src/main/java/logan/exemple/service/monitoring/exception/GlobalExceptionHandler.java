@@ -33,7 +33,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         Result r = new Result();
         r.setErrMessage(e.getMessage());
 
-        r.setErrCode("500");
+        r.setErrCode("500" );
 
         r.setResultCode(StatusCode.Fail.getIndex());
         return r;

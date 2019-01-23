@@ -28,21 +28,23 @@ import javax.annotation.Resource;
 public class SpringJUnitTestApplication {
     @Resource
     SysUserService sysUserService;
+
     @Test
 //    @Rollback(true)//这里加无效，sysLogService.saveSysLog 加入注解事务
-    public void saveSysUser(){
-        SysUser sysUser=new SysUser();
-        for(int i=0;i<100;i++) {
+    public void saveSysUser() {
+        SysUser sysUser = new SysUser();
+        for (int i = 0; i < 100; i++) {
             sysUser.setUserId("user_" + i);
             sysUserService.insert(sysUser);
         }
     }
+
     @Test
 //    @Rollback(true)//这里加无效，sysLogService.saveSysLog 加入注解事务
-    public void getListBySysUser(){
-        SysUser sysUser=new SysUser();
-        sysUser.setTel("1");
-        PageInfo<SysUser> ps= sysUserService.getListBySysUser(sysUser,1,10);
-       System.out.println(JsonFormatTool.formatJson(JsonHandlerGson.ToJsonStr(ps)));
+    public void getListBySysUser() {
+        SysUser sysUser = new SysUser();
+        sysUser.setTel("1" );
+        PageInfo<SysUser> ps = sysUserService.getListBySysUser(sysUser, 1, 10);
+        System.out.println(JsonFormatTool.formatJson(JsonHandlerGson.ToJsonStr(ps)));
     }
 }

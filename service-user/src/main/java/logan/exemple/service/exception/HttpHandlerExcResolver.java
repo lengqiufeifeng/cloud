@@ -17,19 +17,19 @@ import javax.servlet.http.HttpServletResponse;
  * 405 拦截
  * see {@link org.springframework.web.servlet.DispatcherServlet} find
  * 按照 AnnotationAwareOrderComparator.sort(this.handlerExceptionResolvers)
- *  排序 0 位{@link org.springframework.boot.autoconfigure.web.servlet.error.DefaultErrorAttributes}
+ * 排序 0 位{@link org.springframework.boot.autoconfigure.web.servlet.error.DefaultErrorAttributes}
  * Ordered.HIGHEST_PRECEDENCE
  */
 @Component
-@Order(Ordered.HIGHEST_PRECEDENCE+1)
-class HttpHandlerExcResolver implements  HandlerExceptionResolver,Ordered {
+@Order(Ordered.HIGHEST_PRECEDENCE + 1)
+class HttpHandlerExcResolver implements HandlerExceptionResolver, Ordered {
     private Logger logger = LoggerFactory.getLogger(HandlerExceptionResolver.class);
 
     @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
-        logger.debug("---------------------------------");
-        ModelAndView mv=new ModelAndView("/error");
-        request.getSession().setAttribute("err",ex.getMessage());
+        logger.debug("---------------------------------" );
+        ModelAndView mv = new ModelAndView("/error" );
+        request.getSession().setAttribute("err", ex.getMessage());
         mv.setStatus(HttpStatus.valueOf(response.getStatus()));
         return mv;
     }
@@ -37,6 +37,6 @@ class HttpHandlerExcResolver implements  HandlerExceptionResolver,Ordered {
 
     @Override
     public int getOrder() {
-        return Ordered.HIGHEST_PRECEDENCE+1;
+        return Ordered.HIGHEST_PRECEDENCE + 1;
     }
 }

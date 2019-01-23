@@ -12,6 +12,7 @@ public class Person {
     public String getSecondName() {
         return secondName;
     }
+
     public String getPersonId() {
         return personId;
     }
@@ -19,6 +20,7 @@ public class Person {
     public void setPersonId(String personId) {
         this.personId = personId;
     }
+
     public void setSecondName(String secondName) {
         this.secondName = secondName;
     }

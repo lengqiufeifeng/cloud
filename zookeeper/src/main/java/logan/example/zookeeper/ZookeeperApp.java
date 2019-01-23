@@ -2,6 +2,7 @@ package logan.example.zookeeper;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -19,17 +20,18 @@ import org.springframework.web.client.RestTemplate;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-public class ZookeeperApp{
+public class ZookeeperApp {
 
     @Bean
     @LoadBalanced
-    public RestTemplate restTemplate() { // equals to RestTemplate
-        // restTemplate=new RestTemplate();
-        return new RestTemplate();
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        // Do any additional configuration here
+        return builder.build();
     }
+
     public static void main(String[] args) {
         SpringApplication.run(ZookeeperApp.class, args);
-        System.err.println("--------------------");
+        System.err.println("--------------------" );
 
 //        SpringApplicationBuilder springApplicationBuilder=   new SpringApplicationBuilder(ZookeeperApp.class);
 //        springApplicationBuilder.web(WebApplicationType.SERVLET).run(args);

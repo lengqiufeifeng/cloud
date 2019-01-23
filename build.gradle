@@ -2,9 +2,10 @@ group = 'logan.exemple'
 version = '1.0.0'
 buildscript {
     ext {
-        springBootVersion = '2.0.0.M3'
+        springBootVersion = '2.0.5.RELEASE'
     }
     repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         mavenCentral()
         maven {
             url 'https://repo.spring.io/libs-milestone'
@@ -36,10 +37,10 @@ allprojects {
 subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
-    apply plugin: 'eclipse'
+//    apply plugin: 'eclipse'
     // 用于发布 jar 包到相应服务器
     apply plugin: 'maven'
-//    apply plugin: 'org.springframework.boot'
+    apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
     group = 'logan.exemple'
@@ -49,7 +50,7 @@ subprojects {
     targetCompatibility = 1.8
 
     ext {
-        springCloudVersion = 'Finchley.M2'
+        springCloudVersion = 'Finchley.SR1'
     }
     // 编码改为 UTF-8, 否则编译源码的时候会出错
     // 当然，这个需要根据自己的 java 源码的编码进行调整
@@ -68,19 +69,22 @@ subprojects {
     }
 
     dependencies {
-        compile('org.springframework.boot:spring-boot-starter')
-        compile('org.springframework.cloud:spring-cloud-starter-eureka')
 
-        compile group: 'mysql', name: 'mysql-connector-java', version: '6.+'
+//        implementation 'org.springframework.boot:spring-boot-starter'
+        compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+
+
+        implementation group: 'mysql', name: 'mysql-connector-java', version: '6.+'
         compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.+'
 
-        compile group: 'com.github.pagehelper', name: 'pagehelper', version: '5.+'
-        compile group: 'com.github.jsqlparser', name: 'jsqlparser'
+        implementation group: 'com.github.pagehelper', name: 'pagehelper', version: '5.+'
+        implementation group: 'com.github.jsqlparser', name: 'jsqlparser'
 
-        compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.+'
+        implementation group: 'org.aspectj', name: 'aspectjweaver', version: '1.+'
+        testImplementation('org.springframework.boot:spring-boot-starter-test')
+        testRuntimeOnly('com.jayway.jsonpath:json-path')
+//        compile group: 'org.slf4j', name: 'slf4j-api', version: '1.8.0-beta2'
 
-        testCompile('org.springframework.boot:spring-boot-starter-test')
-        testCompile('com.jayway.jsonpath:json-path')
     }
 
 

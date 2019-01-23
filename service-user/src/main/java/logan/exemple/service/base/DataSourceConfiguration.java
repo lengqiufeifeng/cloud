@@ -19,19 +19,19 @@ import javax.sql.DataSource;
 @Configuration
 //@EnableTransactionManagement
 public class DataSourceConfiguration {
-    @Value("${jdbc.type}")
+    @Value("${jdbc.type}" )
     private Class<? extends DataSource> dataSourceType;
 
-    @Bean(name = "masterDataSource")
+    @Bean(name = "masterDataSource" )
     @Primary
-    @ConfigurationProperties(prefix = "master")
-    public DataSource masterDataSource(){
+    @ConfigurationProperties(prefix = "master" )
+    public DataSource masterDataSource() {
         return DataSourceBuilder.create().type(dataSourceType).build();
     }
 
-    @Bean(name = "slaveDataSource")
-    @ConfigurationProperties(prefix = "slave")
-    public DataSource slaveDataSource1(){
+    @Bean(name = "slaveDataSource" )
+    @ConfigurationProperties(prefix = "slave" )
+    public DataSource slaveDataSource1() {
         return DataSourceBuilder.create().type(dataSourceType).build();
     }
 

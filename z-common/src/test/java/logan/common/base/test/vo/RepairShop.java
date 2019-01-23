@@ -2,46 +2,51 @@ package logan.common.base.test.vo;
 
 
 /**
- *  @author zhoupan
+ * @author zhoupan
  */
 public class RepairShop {
-    
+
     /**
      * 修理厂
      * this is repairShopName
      * Y
      */
     private String repairShopName;
-    
+
     /**
      * 修理厂编码
      * this is repairShopCode
      * Y
      */
     private String repairShopCode;
-    
+
     /**
      * 类型
      * this is repairShopType
      */
     private String repairShopType;
 
-    public void setRepairShopName(String repairShopName){
+    public void setRepairShopName(String repairShopName) {
         this.repairShopName = repairShopName;
     }
-    public String getRepairShopName(){
+
+    public String getRepairShopName() {
         return this.repairShopName;
     }
-    public void setRepairShopCode(String repairShopCode){
+
+    public void setRepairShopCode(String repairShopCode) {
         this.repairShopCode = repairShopCode;
     }
-    public String getRepairShopCode(){
+
+    public String getRepairShopCode() {
         return this.repairShopCode;
     }
-    public void setRepairShopType(String repairShopType){
+
+    public void setRepairShopType(String repairShopType) {
         this.repairShopType = repairShopType;
     }
-    public String getRepairShopType(){
+
+    public String getRepairShopType() {
         return this.repairShopType;
     }
 }

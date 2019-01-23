@@ -33,9 +33,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         Result r = new Result();
         r.setErrMessage(e.getMessage());
         if (e instanceof org.springframework.web.servlet.NoHandlerFoundException) {
-            r.setErrCode("404");
+            r.setErrCode("404" );
         } else {
-            r.setErrCode("500");
+            r.setErrCode("500" );
         }
         r.setResultCode(StatusCode.Fail.getIndex());
         return r;

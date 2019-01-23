@@ -25,8 +25,7 @@ class HttpExceptionController implements ErrorViewResolver {
     private Logger logger = LoggerFactory.getLogger(HttpExceptionController.class);
 
 
-
-    @RequestMapping(value = "/self/error")
+    @RequestMapping(value = "/self/error" )
     @ResponseBody
     public Object error(HttpServletResponse resp, HttpServletRequest req) {
         Result r = new Result();
@@ -36,11 +35,11 @@ class HttpExceptionController implements ErrorViewResolver {
 //            err_msg = (String) req.getAttribute(WebUtils.ERROR_MESSAGE_ATTRIBUTE);
 //        }
         if (StringUtils.isEmpty(err_msg)) {
-            err_msg = (String) req.getSession().getAttribute("err");
+            err_msg = (String) req.getSession().getAttribute("err" );
         }
         r.setResultCode(StatusCode.Fail.getIndex());
         if (resp.getStatus() == 404) {
-            r.setErrCode("404");
+            r.setErrCode("404" );
             if (StringUtils.isEmpty(err_msg)) {
                 r.setErrMessage("not find:" + req.getAttribute(RequestDispatcher.ERROR_REQUEST_URI));
             } else {
@@ -49,7 +48,7 @@ class HttpExceptionController implements ErrorViewResolver {
         } else {
             r.setErrCode(String.valueOf(resp.getStatus()));
             r.setErrMessage(err_msg);
-            req.getSession().removeAttribute("err");
+            req.getSession().removeAttribute("err" );
         }
 
         return r;
@@ -58,6 +57,6 @@ class HttpExceptionController implements ErrorViewResolver {
     @Override
     public ModelAndView resolveErrorView(HttpServletRequest request, HttpStatus status, Map<String, Object> model) {
 
-        return new ModelAndView("/self/error");
+        return new ModelAndView("/self/error" );
     }
 }

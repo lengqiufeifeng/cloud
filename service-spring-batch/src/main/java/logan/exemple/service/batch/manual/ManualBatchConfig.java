@@ -67,12 +67,12 @@ public class ManualBatchConfig {
      */
     @Bean
     @StepScope
-    public ItemReader<User> manualReader(@Value("#{jobParameters['time']}") String time) {
+    public ItemReader<User> manualReader(@Value("#{jobParameters['time']}" ) String time) {
         boolean f = false;
         SqlPagingQueryProviderFactoryBean spqpfb = new SqlPagingQueryProviderFactoryBean();
         spqpfb.setDataSource(dataSource);
-        spqpfb.setSelectClause("user_id, user_name, alias_name, create_by, create_time");
-        spqpfb.setFromClause("user");
+        spqpfb.setSelectClause("user_id, user_name, alias_name, create_by, create_time" );
+        spqpfb.setFromClause("user" );
 //        spqpfb.setWhereClause("");
 
         Map<String, Order> map = new HashMap<String, Order>();
@@ -86,11 +86,11 @@ public class ManualBatchConfig {
         reader.setSaveState(false);
         reader.setRowMapper((ResultSet rs, int rowNum) -> {
             User user = new User();
-            user.setUserId(rs.getString("user_id"));
-            user.setUserName(rs.getString("user_name"));
-            user.setAliasName(rs.getString("alias_name"));
-            user.setCreateBy(rs.getString("create_by"));
-            user.setCreateTime(rs.getDate("create_time"));
+            user.setUserId(rs.getString("user_id" ));
+            user.setUserName(rs.getString("user_name" ));
+            user.setAliasName(rs.getString("alias_name" ));
+            user.setCreateBy(rs.getString("create_by" ));
+            user.setCreateTime(rs.getDate("create_time" ));
             return user;
         });
 
@@ -116,12 +116,12 @@ public class ManualBatchConfig {
         return new ItemProcessor<User, Person>() {
             @Override
             public Person process(User item) throws Exception {
-                logger.info("数据转换"+item.getUserId());
+                logger.info("数据转换" + item.getUserId());
                 Person person = new Person();
                 person.setPersonId(item.getUserId());
                 person.setFirstName(item.getUserName());
-                if(StringUtils.isBlank(item.getAliasName())){
-                    throw new InvalidDataException("is null blank");
+                if (StringUtils.isBlank(item.getAliasName())) {
+                    throw new InvalidDataException("is null blank" );
                 }
                 person.setSecondName(item.getAliasName());
                 person.setCreateBy(item.getCreateBy());
@@ -141,7 +141,7 @@ public class ManualBatchConfig {
         JdbcBatchItemWriter<Person> writer = new JdbcBatchItemWriter<Person>();
         writer.setItemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<Person>());
 
-        writer.setSql("INSERT INTO people (people_id,first_name, secoud_name, create_by,create_time) VALUES (:personId, :firstName, :secondName,'MANUAl', :createTime)");
+        writer.setSql("INSERT INTO people (people_id,first_name, secoud_name, create_by,create_time) VALUES (:personId, :firstName, :secondName,'MANUAl', :createTime)" );
         writer.setDataSource(dataSource);
         return writer;
     }
@@ -149,7 +149,7 @@ public class ManualBatchConfig {
     @Bean
     public Job importPeopleJob(JobExeListener listener, Step stepUserToPeople) {
 
-        return jobBuilderFactory.get("importPeopleJob")
+        return jobBuilderFactory.get("importPeopleJob" )
                 .incrementer(new RunIdIncrementer())
                 .listener(listener)
                 .flow(stepUserToPeople)
@@ -164,7 +164,7 @@ public class ManualBatchConfig {
         threadPoolTaskExecutor.setCorePoolSize(2);
         threadPoolTaskExecutor.setQueueCapacity(5);
         threadPoolTaskExecutor.initialize();//初始化线程池
-        Step step = stepBuilderFactory.get("stepUserToPeople")
+        Step step = stepBuilderFactory.get("stepUserToPeople" )
                 .listener(stepExecutionListener())
                 .startLimit(100)//最多重启10次
                 .<User, Person>chunk(2)
@@ -195,17 +195,17 @@ public class ManualBatchConfig {
 
             @Override
             public void beforeStep(StepExecution stepExecution) {
-                logger.info(stepExecution.getStepName() + "{}", "--------------beforeStep");
+                logger.info(stepExecution.getStepName() + "{}", "--------------beforeStep" );
             }
 
             @Override
             public ExitStatus afterStep(StepExecution stepExecution) {
-                logger.info(stepExecution.getStepName() + "{}", "--------------afterStep");
+                logger.info(stepExecution.getStepName() + "{}", "--------------afterStep" );
                 //判断执行结果 用于决定执行下个 step
                 String exitCode = stepExecution.getExitStatus().getExitCode();
                 if (!exitCode.equals(ExitStatus.FAILED.getExitCode()) &&
                         stepExecution.getSkipCount() > 0) {
-                    return new ExitStatus("COMPLETED WITH SKIPS");
+                    return new ExitStatus("COMPLETED WITH SKIPS" );
                 } else {
                     return null;
                 }

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @updateTime ${update_time}
  */
 @RestController
-@RequestMapping("/zk")
+@RequestMapping("/zk" )
 public class ZookeeperController {
     @Autowired
     private LoadBalancerClient loadBalancer;
@@ -24,12 +24,12 @@ public class ZookeeperController {
     @Autowired
     private DiscoveryClient discovery;
 
-    @RequestMapping("/getAllServices")
+    @RequestMapping("/getAllServices" )
     public Object all() {
         return discovery.getServices();
     }
 
-    @RequestMapping("/discoveryServices")
+    @RequestMapping("/discoveryServices" )
     public Object discovery(String serviceId) {
         return loadBalancer.choose(serviceId);
 

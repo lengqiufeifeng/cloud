@@ -25,10 +25,10 @@ public class ReloadDroolsRules {
         Results results = kieBuilder.getResults();
         if (results.hasMessages(Message.Level.ERROR)) {
             System.out.println(results.getMessages());
-            throw new IllegalStateException("### errors ###");
+            throw new IllegalStateException("### errors ###" );
         }
         KieUtils.setKieContainer(kieServices.newKieContainer(getKieServices().getRepository().getDefaultReleaseId()));
-        System.out.println("新规则重载成功");
+        System.out.println("新规则重载成功" );
     }
 
     private String loadRules() {

@@ -4,7 +4,7 @@ public class ExportCertFormKeystore {
 
     public void execCommand(String[] arstringCommand) {
         for (int i = 0; i < arstringCommand.length; i++) {
-            System.out.print(arstringCommand[i] + " ");
+            System.out.print(arstringCommand[i] + " " );
         }
         try {
             Runtime.getRuntime().exec(arstringCommand);
@@ -13,6 +13,7 @@ public class ExportCertFormKeystore {
             System.out.println(e.getMessage());
         }
     }
+
     public void execCommand(String arstringCommand) {
         try {
             Runtime.getRuntime().exec(arstringCommand);
@@ -26,7 +27,7 @@ public class ExportCertFormKeystore {
      * 生成密钥
      */
     public void genkey() {
-        String[] arstringCommand = new String[] {
+        String[] arstringCommand = new String[]{
 
                 "cmd ", "/k",
                 "start", // cmd Shell命令
@@ -60,7 +61,7 @@ public class ExportCertFormKeystore {
      */
     public void export() {
 
-        String[] arstringCommand = new String[] {
+        String[] arstringCommand = new String[]{
 
                 "cmd ", "/k",
                 "start", // cmd Shell命令

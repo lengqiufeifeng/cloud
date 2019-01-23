@@ -6,19 +6,24 @@ import com.google.gson.JsonParser;
 
 import java.lang.reflect.Type;
 
-/** JSON序列化辅助类 **/
+/**
+ * JSON序列化辅助类
+ **/
 public class JsonHandlerGson {
-    private final static Gson gosn = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
-    JsonParser                jp   = new JsonParser();
+    private final static Gson gosn = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss" ).create();
+    JsonParser jp = new JsonParser();
 
     public static String ToJsonStr(Object obj) {
         return gosn.toJson(obj);
     }
+
     public static String ToJsonStrFormat(Object obj) {
         return JsonFormatTool.formatJson(ToJsonStr(obj));
     }
+
     /**
      * json字符串转类
+     *
      * @param json
      * @param classOfT
      * @return
@@ -29,8 +34,8 @@ public class JsonHandlerGson {
 
     /**
      * json字符串转集合
-     * @param json  
-     * Type t=new TypeToken<List<String>>(){}.getType();
+     *
+     * @param json     Type t=new TypeToken<List<String>>(){}.getType();
      * @param classOfT
      * @return
      */

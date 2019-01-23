@@ -8,5 +8,5 @@ include 'service-drools-dispatch'
 include 'service-spring-batch'
 include 'zookeeper'
 include 'zookeeper-client'
-
+include 'gateway'
 

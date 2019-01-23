@@ -32,9 +32,10 @@ public class ServiceUserConfig {
 
     @PostConstruct
     public void initConfig() {
-        logger.info("--------系统加载自定义资源--------------------------");
-        logger.info("----------完成自定义资源加载-----------------------------");
+        logger.info("--------系统加载自定义资源--------------------------" );
+        logger.info("----------完成自定义资源加载-----------------------------" );
     }
+
     @InitBinder//必须有一个参数WebDataBinder
     public void initBinder(WebDataBinder binder) {
 //        binder.get
@@ -53,13 +54,15 @@ public class ServiceUserConfig {
         servletListenerRegistrationBean.setListener(new UserContextLoader());
         return servletListenerRegistrationBean;
     }
+
     @Bean
-    public MultipartConfigElement multipartConfigElement(){
-        MultipartConfigFactory factory=new MultipartConfigFactory();
-        factory.setMaxFileSize("100MB");
-        factory.setMaxRequestSize("120MB");
+    public MultipartConfigElement multipartConfigElement() {
+        MultipartConfigFactory factory = new MultipartConfigFactory();
+        factory.setMaxFileSize("100MB" );
+        factory.setMaxRequestSize("120MB" );
         return factory.createMultipartConfig();
     }
+
     @Bean
     public MappingJackson2HttpMessageConverter mappingJacksonHttpMessageConverter() {
         final MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
@@ -70,7 +73,7 @@ public class ServiceUserConfig {
         mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS,
                 false);
-        mapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+        mapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss" ));
         mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
         mapper.setSerializerFactory(mapper.getSerializerFactory().withSerializerModifier(new BeanSerializerModifier() {
             @Override
@@ -91,7 +94,7 @@ public class ServiceUserConfig {
      */
     @PreDestroy
     public void destroy() {
-        logger.info("--------系统关闭前清理自定义资源--------------------------");
-        logger.info("----------完成自定义资源清除-----------------------------");
+        logger.info("--------系统关闭前清理自定义资源--------------------------" );
+        logger.info("----------完成自定义资源清除-----------------------------" );
     }
 }

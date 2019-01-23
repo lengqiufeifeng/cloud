@@ -28,12 +28,12 @@ public class SpringJUnitTestApplication {
 
     @Test
 //    @Rollback(true)//这里加无效，sysLogService.saveSysLog 加入注解事务
-    public void saveSysLog(){
-        SysLog saveSysLog=new SysLog();
-        saveSysLog.methodName="12";
-        SysLog result  = sysLogService.saveSysLog(saveSysLog);
-        System.out.println("insert:"+result.logId);
-        SysLog result1  = sysLogService.findBySyslogId(result.logId);
-        System.out.println("get:"+result1.logId);
+    public void saveSysLog() {
+        SysLog saveSysLog = new SysLog();
+        saveSysLog.methodName = "12";
+        SysLog result = sysLogService.saveSysLog(saveSysLog);
+        System.out.println("insert:" + result.logId);
+        SysLog result1 = sysLogService.findBySyslogId(result.logId);
+        System.out.println("get:" + result1.logId);
     }
 }

@@ -4,8 +4,8 @@ package logan.common.base.utils;
 import logan.common.base.utils.thread.ThreadUtils;
 
 public class SpeedController {
-    private long       now       = 0L;
-    private long       timestamp = 0L;
+    private long now = 0L;
+    private long timestamp = 0L;
     private final long interval;
 
     public SpeedController(long interval) {

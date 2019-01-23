@@ -25,14 +25,14 @@ import java.util.Properties;
  * 多数据源，配置读取
  */
 @Configuration
-@MapperScan(basePackages = "logan.exemple.service.**.dao")
+@MapperScan(basePackages = "logan.exemple.service.**.dao" )
 //extends MybatisAutoConfiguration
 public class MybatisConfiguration {
 
 
-    @Resource(name = "masterDataSource")
+    @Resource(name = "masterDataSource" )
     private DataSource masterDataSource;
-    @Resource(name = "slaveDataSource")
+    @Resource(name = "slaveDataSource" )
     private DataSource slaveDataSource;
 
     @Bean
@@ -43,14 +43,14 @@ public class MybatisConfiguration {
 
         fb.setDataSource(roundRobinDataSouceProxy());// 指定数据源(这个必须有，否则报错)
         // 下边两句仅仅用于*.xml文件，如果整个持久层操作不需要使用到xml文件的话（只用注解就可以搞定），则不加
-        fb.setTypeAliasesPackage("logan.exemple.service.**.model");// 指定基包
-        fb.setMapperLocations(resolver.getResources("classpath:mapper/**/*.xml"));//
+        fb.setTypeAliasesPackage("logan.exemple.service.**.model" );// 指定基包
+        fb.setMapperLocations(resolver.getResources("classpath:mapper/**/*.xml" ));//
         Properties properties = new Properties();
-        properties.setProperty("offsetAsPageNum","true");
-        properties.setProperty("rowBoundsWithCount","true");
-        properties.setProperty("reasonable","true");
-        properties.setProperty("helperDialect","mysql");    //配置mysql数据库的方言
-        PageInterceptor pageInterceptor =new PageInterceptor();
+        properties.setProperty("offsetAsPageNum", "true" );
+        properties.setProperty("rowBoundsWithCount", "true" );
+        properties.setProperty("reasonable", "true" );
+        properties.setProperty("helperDialect", "mysql" );    //配置mysql数据库的方言
+        PageInterceptor pageInterceptor = new PageInterceptor();
         pageInterceptor.setProperties(properties);
         fb.setPlugins(new Interceptor[]{pageInterceptor});
         return fb.getObject();
@@ -69,7 +69,7 @@ public class MybatisConfiguration {
         return proxy;
     }
 
-    @Bean(name = "sqlSessionTemplate")
+    @Bean(name = "sqlSessionTemplate" )
     public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
         return new SqlSessionTemplate(sqlSessionFactory);
     }

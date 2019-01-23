@@ -1,4 +1,5 @@
 package logan.exemple.service.common;
+
 /**
  * 通知人员信息
  * Created by Logan on 2017/9/22.

@@ -1,11 +1,12 @@
 apply plugin: 'org.springframework.boot'
 
 version '1.0.0'
-archivesBaseName='gataway'
+archivesBaseName = 'gataway'
 
 
-
+sourceCompatibility = 1.8
 
 dependencies {
-    compile('org.springframework.cloud:spring-cloud-starter-zuul')
+    compile('org.springframework.cloud:spring-cloud-starter')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-zuul')
 }

@@ -15,20 +15,22 @@ configurations {
     //
     // 所有需要忽略的包定义在此
     //
-    all*.exclude module: 'spring-cloud-starter-eureka'
+    all*.exclude module: 'spring-cloud-starter-netflix-eureka-client'
 }
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-amqp:2.0.0.M3')
+    compile('org.springframework.boot:spring-boot-starter-amqp')
     compile('org.springframework.cloud:spring-cloud-starter')
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web',version: '2.0.0.M3'
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-ribbon')
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    compile 'org.springframework.cloud:spring-cloud-starter-openfeign'
     //##springboot 提供监听
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator',version: '2.0.0.M3'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
     //使用zookeeper 作为配置中心
 //    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-zookeeper-config'
 
     //使用zookeeper 为服务注册中心
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-zookeeper-discovery'
-//    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-zookeeper-all'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    testCompile('org.springframework.boot:spring-boot-starter-test:2.0.0.M3')
+    compile 'org.springframework.cloud:spring-cloud-zookeeper-discovery'
+    compile group: 'org.apache.curator', name: 'curator-x-discovery'
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }

@@ -7,34 +7,34 @@ package logan.exemple.dispatch.model;
  */
 public class Address {
 
-	private String postcode;
-	
-	private String street;
-	
-	private String state;
+    private String postcode;
 
-	public String getPostcode() {
-		return postcode;
-	}
+    private String street;
 
-	public void setPostcode(String postcode) {
-		this.postcode = postcode;
-	}
+    private String state;
 
-	public String getStreet() {
-		return street;
-	}
+    public String getPostcode() {
+        return postcode;
+    }
 
-	public void setStreet(String street) {
-		this.street = street;
-	}
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
 
-	public String getState() {
-		return state;
-	}
+    public String getStreet() {
+        return street;
+    }
 
-	public void setState(String state) {
-		this.state = state;
-	}
-	
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
 }

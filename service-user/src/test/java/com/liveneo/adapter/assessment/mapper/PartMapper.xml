@@ -1,142 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liveneo.adapter.assessment.dao.PartMapper">
-  <resultMap id="BaseResultMap" type="com.liveneo.adapter.assessment.model.Part">
-    <id column="part_id" jdbcType="VARCHAR" property="partId" />
-    <result column="part_name" jdbcType="VARCHAR" property="partName" />
-    <result column="price" jdbcType="VARCHAR" property="price" />
-    <result column="again_survey" jdbcType="VARCHAR" property="againSurvey" />
-    <result column="recycle" jdbcType="VARCHAR" property="recycle" />
-    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
-    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
-    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    part_id, part_name, price, again_survey, recycle, CREATE_BY, CREATE_TIME, UPDATE_BY, 
-    UPDATE_TIME
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from part
-    where part_id = #{partId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from part
-    where part_id = #{partId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.liveneo.adapter.assessment.model.Part">
-    insert into part (part_id, part_name, price, 
-      again_survey, recycle, CREATE_BY, 
-      CREATE_TIME, UPDATE_BY, UPDATE_TIME
-      )
-    values (#{partId,jdbcType=VARCHAR}, #{partName,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, 
-      #{againSurvey,jdbcType=VARCHAR}, #{recycle,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.liveneo.adapter.assessment.model.Part">
-    insert into part
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="partId != null">
-        part_id,
-      </if>
-      <if test="partName != null">
-        part_name,
-      </if>
-      <if test="price != null">
-        price,
-      </if>
-      <if test="againSurvey != null">
-        again_survey,
-      </if>
-      <if test="recycle != null">
-        recycle,
-      </if>
-      <if test="createBy != null">
-        CREATE_BY,
-      </if>
-      <if test="createTime != null">
-        CREATE_TIME,
-      </if>
-      <if test="updateBy != null">
-        UPDATE_BY,
-      </if>
-      <if test="updateTime != null">
-        UPDATE_TIME,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="partId != null">
-        #{partId,jdbcType=VARCHAR},
-      </if>
-      <if test="partName != null">
-        #{partName,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null">
-        #{price,jdbcType=VARCHAR},
-      </if>
-      <if test="againSurvey != null">
-        #{againSurvey,jdbcType=VARCHAR},
-      </if>
-      <if test="recycle != null">
-        #{recycle,jdbcType=VARCHAR},
-      </if>
-      <if test="createBy != null">
-        #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateBy != null">
-        #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liveneo.adapter.assessment.model.Part">
-    update part
-    <set>
-      <if test="partName != null">
-        part_name = #{partName,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null">
+    <resultMap id="BaseResultMap" type="com.liveneo.adapter.assessment.model.Part">
+        <id column="part_id" jdbcType="VARCHAR" property="partId"/>
+        <result column="part_name" jdbcType="VARCHAR" property="partName"/>
+        <result column="price" jdbcType="VARCHAR" property="price"/>
+        <result column="again_survey" jdbcType="VARCHAR" property="againSurvey"/>
+        <result column="recycle" jdbcType="VARCHAR" property="recycle"/>
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        part_id, part_name, price, again_survey, recycle, CREATE_BY, CREATE_TIME, UPDATE_BY,
+        UPDATE_TIME
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from part
+        where part_id = #{partId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from part
+        where part_id = #{partId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.liveneo.adapter.assessment.model.Part">
+        insert into part (part_id, part_name, price,
+        again_survey, recycle, CREATE_BY,
+        CREATE_TIME, UPDATE_BY, UPDATE_TIME
+        )
+        values (#{partId,jdbcType=VARCHAR}, #{partName,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR},
+        #{againSurvey,jdbcType=VARCHAR}, #{recycle,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR},
+        #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.liveneo.adapter.assessment.model.Part">
+        insert into part
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="partId != null">
+                part_id,
+            </if>
+            <if test="partName != null">
+                part_name,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+            <if test="againSurvey != null">
+                again_survey,
+            </if>
+            <if test="recycle != null">
+                recycle,
+            </if>
+            <if test="createBy != null">
+                CREATE_BY,
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME,
+            </if>
+            <if test="updateBy != null">
+                UPDATE_BY,
+            </if>
+            <if test="updateTime != null">
+                UPDATE_TIME,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="partId != null">
+                #{partId,jdbcType=VARCHAR},
+            </if>
+            <if test="partName != null">
+                #{partName,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="againSurvey != null">
+                #{againSurvey,jdbcType=VARCHAR},
+            </if>
+            <if test="recycle != null">
+                #{recycle,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.liveneo.adapter.assessment.model.Part">
+        update part
+        <set>
+            <if test="partName != null">
+                part_name = #{partName,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                price = #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="againSurvey != null">
+                again_survey = #{againSurvey,jdbcType=VARCHAR},
+            </if>
+            <if test="recycle != null">
+                recycle = #{recycle,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null">
+                CREATE_BY = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                UPDATE_BY = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where part_id = #{partId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.liveneo.adapter.assessment.model.Part">
+        update part
+        set part_name = #{partName,jdbcType=VARCHAR},
         price = #{price,jdbcType=VARCHAR},
-      </if>
-      <if test="againSurvey != null">
         again_survey = #{againSurvey,jdbcType=VARCHAR},
-      </if>
-      <if test="recycle != null">
         recycle = #{recycle,jdbcType=VARCHAR},
-      </if>
-      <if test="createBy != null">
         CREATE_BY = #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
         CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateBy != null">
         UPDATE_BY = #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where part_id = #{partId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.liveneo.adapter.assessment.model.Part">
-    update part
-    set part_name = #{partName,jdbcType=VARCHAR},
-      price = #{price,jdbcType=VARCHAR},
-      again_survey = #{againSurvey,jdbcType=VARCHAR},
-      recycle = #{recycle,jdbcType=VARCHAR},
-      CREATE_BY = #{createBy,jdbcType=VARCHAR},
-      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      UPDATE_BY = #{updateBy,jdbcType=VARCHAR},
-      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
-    where part_id = #{partId,jdbcType=VARCHAR}
-  </update>
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+        where part_id = #{partId,jdbcType=VARCHAR}
+    </update>
 </mapper>

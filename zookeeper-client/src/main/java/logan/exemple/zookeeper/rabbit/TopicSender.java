@@ -26,13 +26,14 @@ public class TopicSender {
     private RabbitTemplate rabbitTemplate;
 
     @PostConstruct
-    public void setConfirmCallback(){
+    public void setConfirmCallback() {
         rabbitTemplate.setConfirmCallback((CorrelationData correlationData, boolean ack, String cause) -> {
             System.out.println("Topic callbakck correlationData id: " + correlationData.getId());
             System.out.println("callbakck ack: " + ack);
             System.out.println("callbakck cause: " + cause);
         });
     }
+
     public void send() {
 
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
@@ -42,11 +43,10 @@ public class TopicSender {
     }
 
 
-
     public void sendB() {
-        HashMap<String,Object> hashMap=new HashMap<String,Object>();
+        HashMap<String, Object> hashMap = new HashMap<String, Object>();
         String context = "hi, i am messages B";
-        hashMap.put("k",context);
+        hashMap.put("k", context);
 
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
         System.out.println("Topic correlationData id: " + correlationData.getId());

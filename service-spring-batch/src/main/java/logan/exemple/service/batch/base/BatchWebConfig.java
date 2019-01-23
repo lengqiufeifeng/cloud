@@ -47,13 +47,13 @@ public class BatchWebConfig implements ServletContextInitializer {
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
         ShallowEtagHeaderFilter sehFilter = new ShallowEtagHeaderFilter();
         filterRegistrationBean.setFilter(sehFilter);
-        filterRegistrationBean.addUrlPatterns("/*");
-        return  filterRegistrationBean;
+        filterRegistrationBean.addUrlPatterns("/*" );
+        return filterRegistrationBean;
     }
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         //设置 context-param
-        servletContext.setInitParameter("contextConfigLocation", "classpath*:/org/springframework/batch/admin/web/resources/webapp-config.xml");
+        servletContext.setInitParameter("contextConfigLocation", "classpath*:/org/springframework/batch/admin/web/resources/webapp-config.xml" );
     }
 }

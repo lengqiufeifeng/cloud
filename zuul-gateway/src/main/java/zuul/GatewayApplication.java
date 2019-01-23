@@ -10,7 +10,7 @@ import org.springframework.cloud.netflix.zuul.filters.route.SimpleHostRoutingFil
 
 /**
  * 继承SpringBootServletInitializer，打包war
- *  * Created by lzr on 2017/4/15.
+ * * Created by lzr on 2017/4/15.
  */
 @SpringBootApplication
 @EnableZuulProxy

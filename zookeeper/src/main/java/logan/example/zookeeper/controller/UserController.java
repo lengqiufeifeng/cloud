@@ -15,32 +15,33 @@ import org.springframework.web.client.RestTemplate;
  * @updateTime ${update_time}
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/user" )
 public class UserController {
 
-    @Autowired
-    private RestTemplate restTemplate;
 
-    @RequestMapping("/getUserById/{id}")
+    @RequestMapping("/getUserById/{id}" )
     public Object getUserByIdUrl(@PathVariable int id) {
-        User user=new User();
+        User user = new User();
         user.setId(id);
         return user;
     }
-    @RequestMapping("/getUserByIdOrUserName")
-    public Object getUserByIdOrUserName(@RequestParam(value="id",required=false) int id,@RequestHeader("User-Agent") String userAgent) {
-        User user=new User();
+
+    @RequestMapping("/getUserByIdOrUserName" )
+    public Object getUserByIdOrUserName(@RequestParam(value = "id", required = false) int id, @RequestHeader("User-Agent" ) String userAgent) {
+        User user = new User();
         user.setId(id);
         user.setName(userAgent);
         return user;
     }
-    @RequestMapping("/getUserById")
+
+    @RequestMapping("/getUserById" )
     public Object getUserById(int id) {
-        User user=new User();
+        User user = new User();
         user.setId(id);
         return user;
     }
-    @RequestMapping("/getUserByUser")
+
+    @RequestMapping("/getUserByUser" )
     public Object getUserByUser(@RequestBody User usr) {
 
         return usr;

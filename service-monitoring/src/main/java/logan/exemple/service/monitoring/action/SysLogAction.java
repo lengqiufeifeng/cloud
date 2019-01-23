@@ -17,7 +17,7 @@ import java.util.Map;
  * Created by qiufeng on 2017/9/19.
  */
 @RestController
-@RequestMapping("/log")
+@RequestMapping("/log" )
 public class SysLogAction {
     @Resource
     SysLogService sysLogService;
@@ -35,29 +35,29 @@ public class SysLogAction {
         return result;
     }
 
-    @RequestMapping(value = "getlogs/{page}/{size}")
+    @RequestMapping(value = "getlogs/{page}/{size}" )
     public Result getlogs(@RequestBody(required = false) SysLogVo sysLogVo, @PathVariable int page, @PathVariable int size) throws Exception {
         Result result = new Result();
         Page<SysLog> lt = sysLogService.findBySysLogVo(sysLogVo, size, page);
         result.setResultCode(StatusCode.Success.getIndex());
-        Map map=new HashMap();
-        map.put("totalRows",lt.getTotalElements());
-        map.put("totalPages",lt.getTotalPages());
-        map.put("currentlyRow",lt.getSize());
-        map.put("current",lt.getNumber());
-        map.put("rows",lt.getContent());
-        map.put("currentPage",page);
+        Map map = new HashMap();
+        map.put("totalRows", lt.getTotalElements());
+        map.put("totalPages", lt.getTotalPages());
+        map.put("currentlyRow", lt.getSize());
+        map.put("current", lt.getNumber());
+        map.put("rows", lt.getContent());
+        map.put("currentPage", page);
         result.setDataContent(map);
         return result;
     }
 
-    @RequestMapping(value = "/service")
+    @RequestMapping(value = "/service" )
     public Result service() throws Exception {
         Result result = new Result();
 
         result.setResultCode(StatusCode.Success.getIndex());
         if (true)
-            throw new Exception("");
+            throw new Exception("" );
         return result;
     }
 }

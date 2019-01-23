@@ -1,117 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="logan.exemple.service.user.dao.AvaUserRoleMapper">
-  <resultMap id="BaseResultMap" type="logan.exemple.service.user.model.AvaUserRole">
-    <id column="user_role_id" jdbcType="VARCHAR" property="userRoleId" />
-    <result column="user_id" jdbcType="VARCHAR" property="userId" />
-    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
-    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    user_role_id, user_id, role_id, create_by, create_time, update_by, update_time
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from ava_user_role
-    where user_role_id = #{userRoleId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from ava_user_role
-    where user_role_id = #{userRoleId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="logan.exemple.service.user.model.AvaUserRole">
-    insert into ava_user_role (user_role_id, user_id, role_id, 
-      create_by, create_time, update_by, 
-      update_time)
-    values (#{userRoleId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}, 
-      #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
-      #{updateTime,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="logan.exemple.service.user.model.AvaUserRole">
-    insert into ava_user_role
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="userRoleId != null">
-        user_role_id,
-      </if>
-      <if test="userId != null">
-        user_id,
-      </if>
-      <if test="roleId != null">
-        role_id,
-      </if>
-      <if test="createBy != null">
-        create_by,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="updateBy != null">
-        update_by,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="userRoleId != null">
-        #{userRoleId,jdbcType=VARCHAR},
-      </if>
-      <if test="userId != null">
-        #{userId,jdbcType=VARCHAR},
-      </if>
-      <if test="roleId != null">
-        #{roleId,jdbcType=VARCHAR},
-      </if>
-      <if test="createBy != null">
-        #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateBy != null">
-        #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="logan.exemple.service.user.model.AvaUserRole">
-    update ava_user_role
-    <set>
-      <if test="userId != null">
-        user_id = #{userId,jdbcType=VARCHAR},
-      </if>
-      <if test="roleId != null">
+    <resultMap id="BaseResultMap" type="logan.exemple.service.user.model.AvaUserRole">
+        <id column="user_role_id" jdbcType="VARCHAR" property="userRoleId"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="role_id" jdbcType="VARCHAR" property="roleId"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        user_role_id, user_id, role_id, create_by, create_time, update_by, update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ava_user_role
+        where user_role_id = #{userRoleId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from ava_user_role
+        where user_role_id = #{userRoleId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="logan.exemple.service.user.model.AvaUserRole">
+        insert into ava_user_role (user_role_id, user_id, role_id,
+        create_by, create_time, update_by,
+        update_time)
+        values (#{userRoleId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR},
+        #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR},
+        #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="logan.exemple.service.user.model.AvaUserRole">
+        insert into ava_user_role
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userRoleId != null">
+                user_role_id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="roleId != null">
+                role_id,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userRoleId != null">
+                #{userRoleId,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="roleId != null">
+                #{roleId,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="logan.exemple.service.user.model.AvaUserRole">
+        update ava_user_role
+        <set>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="roleId != null">
+                role_id = #{roleId,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where user_role_id = #{userRoleId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="logan.exemple.service.user.model.AvaUserRole">
+        update ava_user_role
+        set user_id = #{userId,jdbcType=VARCHAR},
         role_id = #{roleId,jdbcType=VARCHAR},
-      </if>
-      <if test="createBy != null">
         create_by = #{createBy,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateBy != null">
         update_by = #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where user_role_id = #{userRoleId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="logan.exemple.service.user.model.AvaUserRole">
-    update ava_user_role
-    set user_id = #{userId,jdbcType=VARCHAR},
-      role_id = #{roleId,jdbcType=VARCHAR},
-      create_by = #{createBy,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_by = #{updateBy,jdbcType=VARCHAR},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where user_role_id = #{userRoleId,jdbcType=VARCHAR}
-  </update>
+        update_time = #{updateTime,jdbcType=TIMESTAMP}
+        where user_role_id = #{userRoleId,jdbcType=VARCHAR}
+    </update>
 </mapper>

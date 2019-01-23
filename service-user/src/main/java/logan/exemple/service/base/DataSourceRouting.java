@@ -14,7 +14,7 @@ public class DataSourceRouting extends AbstractRoutingDataSource {
 
     @Override
     protected Object determineCurrentLookupKey() {
-        if(logger.isDebugEnabled())
+        if (logger.isDebugEnabled())
             logger.debug("数据源为{}", DataSourceContextHolder.getDbType());
         return DataSourceContextHolder.getDbType();
     }

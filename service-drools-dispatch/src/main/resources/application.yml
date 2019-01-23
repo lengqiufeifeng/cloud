@@ -7,7 +7,3 @@ spring:
     name: drools-dispatch
 server:
   port: 8082
-zuul:
-  routes:
-    service-user: /user/**
-    service-monitoring: /monitoring/**

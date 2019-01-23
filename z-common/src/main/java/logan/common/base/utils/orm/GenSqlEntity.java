@@ -14,7 +14,7 @@ public class GenSqlEntity {
     public static void main(String arg[]) {
 
         try {
-            List<Class<?>> classes = ClassUtils.getClasses(Class.forName("logan.common.base.test.vo.FeeInfo").getPackage().getName());
+            List<Class<?>> classes = ClassUtils.getClasses(Class.forName("logan.common.base.test.vo.FeeInfo" ).getPackage().getName());
 
             for (Class clas : classes) {
                 String st = exec(CustomModel.class);
@@ -111,7 +111,7 @@ public class GenSqlEntity {
      * @return 返回一个字符串中的大写字母
      */
     private static String stringChange(String s) {
-        s = s.substring((s.lastIndexOf(".") + 1), s.length());
+        s = s.substring((s.lastIndexOf("." ) + 1), s.length());
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
 
@@ -142,13 +142,13 @@ public class GenSqlEntity {
         String fieldName() default "";
     }
 
-    @DataBaseTable(tableName = "CustomModel")
+    @DataBaseTable(tableName = "CustomModel" )
     public class CustomModel {
 
-        @ColumnsName(fieldName = "userId")
+        @ColumnsName(fieldName = "userId" )
         public String a_mImUserId;
 
-        @ColumnsName(fieldName = "user_date")
+        @ColumnsName(fieldName = "user_date" )
         public Date UserDate;
 
 

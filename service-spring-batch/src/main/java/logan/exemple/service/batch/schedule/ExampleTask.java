@@ -32,12 +32,12 @@ public class ExampleTask {
     @Autowired
     private Job importPeopleJob;
 
-    @Scheduled(cron = "0/10 * * * * ?")
+    @Scheduled(cron = "0/10 * * * * ?" )
     public void taskRun() {
-        logger.info("开始执行定时任务");
+        logger.info("开始执行定时任务" );
         JobParametersBuilder jobPara = new JobParametersBuilder();  //设置参数
-        jobPara.addString("time","2018-01-15 00:00:00");
-        jobPara.addString("max","9");
+        jobPara.addString("time", "2018-01-15 00:00:00" );
+        jobPara.addString("max", "9" );
         try {
             jobLauncher.run(importPeopleJob, jobPara.toJobParameters());
         } catch (Exception e) {

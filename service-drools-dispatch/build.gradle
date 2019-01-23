@@ -1,7 +1,7 @@
 group 'logan.exemple'
 version '1.0.0'
 
-apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
 
@@ -22,7 +22,7 @@ dependencies {
     compile "org.kie:kie-ci:$droolsVersion"
     compile "org.kie:kie-internal:$droolsVersion"
 //    compile "org.mvel:mvel2:$droolsVersion"
-    compile ("org.kie:kie-spring:$droolsVersion"){
+    compile("org.kie:kie-spring:$droolsVersion") {
 //        transitive = false
         exclude group: 'org.springframework:spring-tx'
         exclude group: 'org.springframework:spring-beans'
@@ -33,6 +33,7 @@ dependencies {
     compile "org.drools:drools-compiler:$droolsVersion"
     compile "org.drools:drools-decisiontables:$droolsVersion"
     compile "org.drools:drools-templates:$droolsVersion"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     //使用新
     compile "com.thoughtworks.xstream:xstream:1.4.10"
     testCompile('org.springframework.boot:spring-boot-starter-test:2.0.0.M3')
